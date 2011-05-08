@@ -488,7 +488,8 @@ blockquote {
 .dokuwiki .page div.level5 {
     margin-right: 0.2em;
     margin-left: 5px; /* should be geared to margin/padding-left for headlines,
-                        .dokuwiki div.diffoptions and .dokuwiki table.diff */
+                         .dokuwiki div.diffoptions, .dokuwiki table.diff and
+                         div.search_result */
 }
 .dokuwiki .page,
 .dokuwiki .page ul,
@@ -901,6 +902,16 @@ div.picker button.pickerbutton {
     margin-top: 4px;
     margin-bottom: 4px;
     width: 99%;
+}
+/* container for one search result */
+.dokuwiki div.search_result {
+    margin-right: 0.2em;
+    margin-left: 5px; /* should be geared to margin/padding-left for headlines
+                         and div.level1-5 */
+    margin-top: 1em;
+}
+.dokuwiki div.search_result a.wikilink1:first-child {
+    font-weight: bold;
 }
 
 
