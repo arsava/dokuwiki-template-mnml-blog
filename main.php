@@ -1,0 +1,402 @@
+<?php
+
+/**
+ * Main file of the "mnml-blog" template for DokuWiki
+ *
+ *
+ * LICENSE: This file is open source software (OSS) and may be copied under
+ *          certain conditions. See COPYING file for details or try to contact
+ *          the author(s) of this file in doubt.
+ *
+ * @license GPLv2 (http://www.gnu.org/licenses/gpl2.html)
+ * @author Andreas Haerter <development@andreas-haerter.com>
+ * @link http://andreas-haerter.com/projects/dokuwiki-template-mnml-blog
+ * @link http://www.dokuwiki.org/template:mnml-blog
+ * @link http://www.dokuwiki.org/devel:templates
+ * @link http://www.dokuwiki.org/devel:coding_style
+ * @link http://www.dokuwiki.org/devel:environment
+ * @link http://www.dokuwiki.org/devel:action_modes
+ */
+
+
+//check if we are running within the DokuWiki environment
+if (!defined("DOKU_INC")){
+    die();
+}
+
+
+/**
+ * Stores the name the current client used to login
+ *
+ * @var string
+ * @author Andreas Haerter <development@andreas-haerter.com>
+ */
+$loginname = "";
+if (!empty($conf["useacl"])){
+    if (isset($_SERVER["REMOTE_USER"]) && //no empty() but isset(): "0" may be a valid username...
+        $_SERVER["REMOTE_USER"] !== ""){
+        $loginname = $_SERVER["REMOTE_USER"]; //$INFO["client"] would not work here (-> e.g. when
+                                              //current IP differs from the one used to login)
+    }
+}
+
+
+//get needed language array
+include DOKU_TPLINC."lang/en/lang.php";
+//overwrite English language values with available translations
+if (!empty($conf["lang"]) &&
+    $conf["lang"] != "en" &&
+    file_exists(DOKU_TPLINC."/lang/".$conf["lang"]."/lang.php")){
+    //get language file (partially translated language files are no problem
+    //cause non translated stuff is still existing as English array value)
+    include DOKU_TPLINC."/lang/".$conf["lang"]."/lang.php";
+}
+
+
+//detect revision
+$rev = (int)$INFO["rev"]; //$INFO comes from the DokuWiki core
+if ($rev < 1){
+    $rev = (int)$INFO["lastmod"];
+}
+
+
+//get boxes config
+if (file_exists(DOKU_TPLINC."/user/boxes.php")){ //user defined
+   include DOKU_TPLINC."/user/boxes.php";
+}
+
+
+/**
+ * Helper to render the boxes (like a dynamic XHTML snippet)
+ *
+ * @param array The box data to render within the snippet. Each box is
+ *        represented through an subarray:
+ *        $array = array("box-id1" => array("headline" => "hello world!",
+ *                                          "xhtml"    => "I am <i>here</i>."));
+ *        Available keys within the subarrays:
+ *        - "xhtml" (mandatory)
+ *          The content of the Box you want to show as XHTML. Attention: YOU
+ *          HAVE TO TAKE CARE ABOUT FILTER EVENTUALLY USED INPUT/SECURITY. Be
+ *          aware of XSS and stuff.
+ *        - "headline" (optional)
+ *          Headline to show above the box. Leave empty/do not set for none.
+ * @author Andreas Haerter <development@andreas-haerter.com>
+ * @link http://www.wikipedia.org/wiki/Nofollow
+ * @link http://www.wikipedia.org/wiki/Cross-site_scripting
+ * @link http://www.dokuwiki.org/devel:coding_style
+ */
+function _mnmlblog_renderBoxes($arr)
+{
+    //is there something useful?
+    if (empty($arr) ||
+        !is_array($arr)){
+        return false; //nope, break operation
+    }
+
+    //array to store the created boxes into
+    $boxes = array();
+
+    //handle the box data
+    foreach($arr as $div_id => $contents){
+        //basic check
+        if (empty($contents) ||
+            !is_array($contents) ||
+            !isset($contents["xhtml"])){
+            continue; //ignore invalid stuff and go on
+        }
+        $interim  = "\n            <div class=\"sidebarbox\" id=\"".hsc($div_id)."\">\n";
+        if (!empty($contents["headline"])){
+            $interim .= "                <h5 class=\"hspec\">".hsc($contents["headline"])."</h5>\n";
+        }
+        $interim .= "                <div class=\"level1\">".$contents["xhtml"]."</div>"
+                   ."\n            </div>\n\n";
+        //store it
+        $boxes[] = $interim;
+    }
+    //show everything created
+    if (!empty($boxes)){
+        foreach ($boxes as $box){
+            echo $box;
+        }
+    }
+
+    return true;
+}
+
+//workaround for the "jumping textarea" IE bug. CSS only fix not possible cause
+//some DokuWiki JavaScript is triggering this bug, too. See the following for
+//info:
+//- <http://blog.andreas-haerter.com/2010/05/28/fix-msie-8-auto-scroll-textarea-css-width-percentage-bug>
+//- <http://msdn.microsoft.com/library/cc817574.aspx>
+if ($ACT === "edit" &&
+    !headers_sent()){
+    header("X-UA-Compatible: IE=EmulateIE7");
+}
+
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo hsc($conf["lang"]); ?>" lang="<?php echo hsc($conf["lang"]); ?>" dir="<?php echo hsc($lang["direction"]); ?>">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?php tpl_pagetitle(); echo " - ".hsc($conf["title"]); ?></title>
+<?php
+//show meta-tags
+tpl_metaheaders();
+
+//include default or userdefined favicon
+//
+//note: since 2011-04-22 "Rincewind RC1", there is a core function named
+//      "tpl_getFavicon()". But its functionality is not really fitting the
+//      behaviour of this template, therefore I don't use it here exclusively.
+if (file_exists(DOKU_TPLINC."user/favicon.ico")){
+    //user defined - you might find http://tools.dynamicdrive.com/favicon/
+    //useful to generate one
+    echo "\n<link rel=\"shortcut icon\" href=\"".DOKU_TPL."user/favicon.ico\" />\n";
+} elseif (file_exists(DOKU_TPLINC."user/favicon.png")) {
+    //note: I do NOT recommend PNG for favicons (cause it is not supported by
+    //all browsers).
+    echo "\n<link rel=\"shortcut icon\" href=\"".DOKU_TPL."user/favicon.png\" />\n";
+}else{
+    //default
+    echo "\n<link rel=\"shortcut icon\" href=\"".(function_exists("tpl_getFavicon") ? tpl_getFavicon() : DOKU_TPL."images/favicon.ico")."\" />\n";
+}
+
+//load userdefined js?
+if (tpl_getConf("mnmlblog_loaduserjs")){
+    echo "<script type=\"text/javascript\" charset=\"utf-8\" src=\"".DOKU_TPL."user/user.js\"></script>\n";
+}
+?>
+<!--[if lt IE 7]><style type="text/css">img, div, a, input, td { behavior: url(<?php echo DOKU_TPL; ?>js/iepngfix/iepngfix.htc); }</style><![endif]-->
+</head>
+
+<body>
+<div id="pagewrap"<?php
+    if ($ACT !== "show" && //speed up: check most common action first
+        ($ACT === "admin" ||
+         $ACT === "draft" ||
+         $ACT === "edit" ||
+         $ACT === "preview" ||
+         $ACT === "save" ||
+         $ACT === "conflict" ||
+         $ACT === "diff")){
+        echo " class=\"admin\"";
+    } ?>>
+
+    <!-- start header -->
+    <div id="tmpl_header">
+        <?php
+        //include userdefined logo or show text-headline
+        echo "<a href=\"".DOKU_BASE."\" name=\"dokuwiki__top\" id=\"dokuwiki__top\" accesskey=\"h\"";
+        if (file_exists(DOKU_TPLINC."user/logo.png")){
+            //user defined PNG
+            echo "><img src=\"".DOKU_TPL."user/logo.png\" id=\"tmpl_header_logo_img\" alt=\"\"/></a>\n";
+        }elseif (file_exists(DOKU_TPLINC."user/logo.gif")){
+            //user defined GIF
+            echo "><img src=\"".DOKU_TPL."user/logo.gif\" id=\"tmpl_header_logo_img\" alt=\"\"/></a>\n";
+        }elseif (file_exists(DOKU_TPLINC."user/logo.jpg")){
+            //user defined JPG
+            echo "><img src=\"".DOKU_TPL."user/logo.jpg\" id=\"tmpl_header_logo_img\" alt=\"\"/></a>\n";
+        }else{
+            //default
+            echo " class=\"tmpl_header_logo_txt\">".hsc($conf["title"])."</a>\n";
+        }
+
+        //show header navigation?
+        if (tpl_getConf("mnmlblog_headernav")){
+            echo "\n       <div id=\"tmpl_header_nav\">\n";
+            //we have to show a custom navigation
+            if (empty($conf["useacl"]) ||
+                auth_quickaclcheck(cleanID(tpl_getConf("mnmlblog_headernav_location")))){ //current user got access?
+                //get the rendered content of the defined wiki article to use as custom navigation
+                $interim = tpl_include_page(tpl_getConf("mnmlblog_headernav_location"), false);
+                if ($interim === "" ||
+                    $interim === false){
+                    //show creation/edit link if the defined page got no content
+                    echo "[&#160;";
+                    tpl_pagelink(tpl_getConf("mnmlblog_headernav_location"), hsc($lang["mnmlblog_fillplaceholder"]." (".tpl_getConf("mnmlblog_headernav_location").")"));
+                    echo "&#160;]<br />";
+                }else{
+                   //show the rendered page content
+                   echo $interim;
+                }
+            }
+            if (tpl_getConf("mnmlblog_search") &&
+                tpl_getConf("mnmlblog_search_pos") === "headernav"){
+                echo "\n            <div id=\"tmpl_header_nav_search\" class=\"dokuwiki\">\n";
+                tpl_searchform();
+                echo "\n            </div>\n";
+            }
+            echo "            <div class=\"clearer\"></div>\n        </div>\n";
+        }
+        ?>
+        <div class="clearer"></div>
+    </div>
+    <!-- end header -->
+
+
+    <!-- start main content area -->
+    <div class="dokuwiki">
+        <?php html_msgarea()?>
+
+        <!-- start left col -->
+        <div id="content">
+            <div class="page">
+                <?php
+                $toc = tpl_toc(true);
+                if ($toc){
+                    echo $toc;
+                    echo "<div class=\"clearer\"></div>\n";
+                } ?>
+
+<!-- start rendered page content -->
+<?php
+//send already created content to get a faster page rendering on the client
+tpl_flush();
+//show page content
+tpl_content(false);
+?>
+<!-- end rendered page content -->
+<div class="clearer"></div>
+
+
+            </div>
+        </div>
+        <!-- end left col -->
+        <?php
+        //send already created content to get a faster page rendering on the client
+        tpl_flush();
+        ?>
+
+        <!-- start right col -->
+        <div id="tmpl_sidebar">
+            <?php
+            //show sidebar navigation?
+            if (tpl_getConf("mnmlblog_sidebarnav")){
+                echo "\n            <div class=\"sidebarnav\">\n";
+                //we have to show a custom navigation
+                if (empty($conf["useacl"]) ||
+                    auth_quickaclcheck(cleanID(tpl_getConf("mnmlblog_sidebarnav_location")))){ //current user got access?
+              //get the rendered content of the defined wiki article to use as custom navigation
+                    $interim = tpl_include_page(tpl_getConf("mnmlblog_sidebarnav_location"), false);
+                    if ($interim === "" ||
+                        $interim === false){
+                        //show creation/edit link if the defined page got no content
+                        echo "[&#160;";
+                        tpl_pagelink(tpl_getConf("mnmlblog_sidebarnav_location"), hsc($lang["mnmlblog_fillplaceholder"]." (".tpl_getConf("mnmlblog_sidebarnav_location").")"));
+                        echo "&#160;]<br />";
+                    }else{
+                       //show the rendered page content
+                       echo $interim;
+                    }
+                }
+                echo "            </div>\n";
+            }
+            ?>
+
+
+            <?php
+            if (tpl_getConf("mnmlblog_search") &&
+                tpl_getConf("mnmlblog_search_pos") === "sidebar"){
+                echo  "\n            <div id=\"search\" class=\"sidebarbox\">\n"
+                     ."                <h5 class=\"hspec\">".hsc($lang["mnmlblog_search"])."</h5>\n"
+                     ."                <div class=\"level1\">";
+                tpl_searchform();
+                echo "\n                </div>\n            </div>\n";
+            }?>
+
+            <?php
+            //show boxes, see mnml-blog/user/boxes.php to configure them
+            if (!empty($_mnmlblog_boxes) &&
+                 is_array($_mnmlblog_boxes)){
+                _mnmlblog_renderBoxes($_mnmlblog_boxes);
+            }
+
+            //copyright notice
+            if (tpl_getConf("mnmlblog_copyright")){
+                echo "\n            <div id=\"licenseinfo\">\n                ";
+                if (tpl_getConf("mnmlblog_copyright_default")){
+                    tpl_license(false);
+                }else{
+                    if (empty($conf["useacl"]) ||
+                        auth_quickaclcheck(cleanID(tpl_getConf("mnmlblog_copyright_location")))){ //current user got access?
+                        //get the rendered content of the defined wiki article to use as custom notice
+                        $interim = tpl_include_page(tpl_getConf("mnmlblog_copyright_location"), false);
+                        if ($interim === "" ||
+                            $interim === false){
+                            //show creation/edit link if the defined page got no content
+                            echo "[&#160;";
+                            tpl_pagelink(tpl_getConf("mnmlblog_copyright_location"), hsc($lang["mnmlblog_fillplaceholder"]." (".tpl_getConf("mnmlblog_copyright_location").")"));
+                            echo "&#160;]<br />";
+                        }else{
+                            //show the rendered page content
+                            echo $interim;
+                        }
+                    }
+                }
+                echo "\n            </div>\n\n";
+            }
+            ?>
+
+            <div class="clearer"></div>
+        </div>
+        <!-- end right col -->
+        <div class="clearer"></div>
+
+        <div id="tmpl_footer">
+            <div id="tmpl_footer_actlinksleft">
+                [&#160;<?php tpl_actionlink("top"); echo "&#160;|&#160;"; tpl_actionlink("index"); ?>&#160;]
+            </div>
+            <div id="tmpl_footer_actlinksright">
+                <?php
+                echo "[&#160;";
+                tpl_actionlink("login"); //"login" handles both login/logout
+                if (!empty($INFO["writable"])){ //$INFO comes from DokuWiki core
+                    echo "&#160;|&#160;";
+                    tpl_actionlink("edit"); //"edit" handles edit/create/show
+                }
+                if (!empty($INFO["isadmin"]) ||  //$INFO comes from DokuWiki core
+                    !empty($INFO["ismanager"])){
+                    echo  "&#160;|&#160;"
+                         ."<a href=\"".hsc(wl(cleanID(tpl_getConf("mnmlblog_newpostform_location"))))."\" rel=\"nofollow\">New Post</a>"; //create new posting
+                    echo "&#160;|&#160;";
+                    tpl_actionlink("admin");
+                } else {
+                    echo  "&#160;|&#160;"
+                         ."<a href=\"".hsc(wl(cleanID(tpl_getConf("mnmlblog_newpostform_location")), array("do" => "login")))."\" rel=\"nofollow\">New Post</a>"; //create new posting
+                }
+                if (!empty($loginname)){
+                    echo "&#160;|&#160;";
+                    tpl_actionlink("profile");
+                }
+                echo "&#160;]";
+                ?>
+            </div>
+            <div class="clearer"></div>
+            <div id="tmpl_footer_metainfo">
+                <a href="http://andreas-haerter.com/projects/dokuwiki-template-mnml-blog">mnml-blog</a> on <a href="http://www.dokuwiki.org/">DW</a> under the hood.
+                <?php
+                if (!empty($loginname)){
+                    echo " | ";
+                    tpl_pageinfo();
+                    echo " | ";
+                    tpl_userinfo();
+                }
+                ?>
+            </div>
+        </div>
+
+    </div>
+    <!-- end main content area -->
+    <div class="clearer"></div>
+    <?php
+    //provide DokuWiki housekeeping, required in all templates
+    tpl_indexerWebBug();
+    //include web analytics software
+    if (file_exists(DOKU_TPLINC."/user/tracker.php")){
+        include DOKU_TPLINC."/user/tracker.php";
+    }
+    ?>
+
+</div>
+</body>
+</html>

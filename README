@@ -1,0 +1,186 @@
+Title: README of the mnml-blog template for DokuWiki
+Creation date: 2010-03-12
+Last Update: 2011-05-08
+Author: Andreas Haerter <development [ät] andreas-haerter.com>
+Web: <http://andreas-haerter.com>
+     <http://andreas-haerter.com/projects/dokuwiki-template-mnml-blog>
+     <http://blog.andreas-haerter.com/2011/03/16/how-to-create-a-maintainable-dokuwiki-template>
+
+
+
+PLEASE NOTE: I am NO native English speaker. If you find any errors please let
+             me know (e.g. by mail). Otherwise, my English is not getting better
+             (as desired by myself). Thank you! -- Andreas Haerter
+
+
+
+I. Using/Installing the template
+  Fist step:
+  The basic install of "mnml-blog" is simple and works just as described at
+  <http://www.dokuwiki.org/template>: extract the downloaded archive into
+  your DokuWiki's "lib/tpl/" folder. Then select the template in the Config
+  Manager by adjusting the template option. Done. :-)
+
+  Second step:
+  Check if the BlogTNG plugin is installed and up2date. This template is
+  designed for the usage with the BlogTNG-Plugin *only* (it may work for other
+  purposes, but I do not test or support anything else)! You can get the plugin
+  at <http://dokuwiki.org/plugin:blogtng>.
+
+  Third step:
+  The files in "lib/tpl/mnml-blog/blogtng-tpl" are a BlogTNG data template
+  (see <http://www.dokuwiki.org/plugin:blogtng#templates> for details). Please
+  copy these files into all used BlogTNG data template dirs below
+  "lib/plugins/blogtng/tpl".
+  Hint: By default, there is only "lib/plugins/blogtng/tpl/default". You may
+        overwrite the existing files in there (but remember: you have to do this
+        again on every BlogTNG-Update then!).
+
+  Fourth step:
+  Create a wiki <blog list> page where all posting shall appear. Then look where
+  the option "mnmlblog_newpostform_location" (-> "Use following wiki page for
+  the '<blog newform>' form") points to (default is ":wiki:create_new_blogpost")
+  and create a wiki <blog newform> page there (the "New Post" link at the bottom
+  right of the footer is using this link). See
+  <http://www.dokuwiki.org/plugin:blogtng> for details.
+
+
+
+II. Customizing the template
+  In order to make updates of your installed "mnml-blog" template easy, follow
+  these hints for customizing the template:
+
+  - Place your files in "mnml-blog/user"
+    The place for *all* userdefined, custom stuff is "mnml-blog/user".
+    Reason: this folder will not be touched on updates. Therefore you may delete
+    everything except "mnml-blog/user" and copy all new files into "mnml-blog/"
+    to update without loosing your changes. Do not forget to empty your
+    browser's cache afterwards.
+
+  - Own logo
+    Ff you want to replace the default text showed in the headline, simply
+    create a "logo.[png|gif|jpg]" in "mnml-blog/user". The template recognizes
+    the file automatically and will use it instead of the default text.
+    Do not forget to empty your browser's cache afterwards.
+
+  - Own favicon
+    If you want to replace the default favicon, simply create a "favicon.ico" in
+    "mnml-blog/user". The template recognizes the file automatically and will
+    use it instead of the default one. Do not forget to empty your browser's
+    cache afterwards. By the way: you might find the following online tool
+    useful: <http://tools.dynamicdrive.com/favicon/>
+    Note: "favicon.png" is also possible but not recommended (cause it is not
+          supported by most MSIE versions).
+
+  - Own CSS
+    To apply additional CSS rules, edit "mnml-blog/user/screen.css" (influences
+    normal layout) and/or "mnml-blog/user/print.css" (influences print layout)
+    and/or "mnml-blog/user/rtl.css" (influences "right-to-left" languages like
+    hebrew). These files will be included automatically (as the last ones for
+    the relevant media, therefore you are able to overrule existing styles). Do
+    not forget to empty your browser's cache afterwards.
+
+  - Own JavaScript
+    To load additional JavaScript, edit "mnml-blog/user/user.js". Do not forget
+    to empty your browser's cache afterwards.
+    ATTENTION: Do not forget to activate the template option
+               "mnml-blog_loaduserjs" (->"Load 'mnml-blog/user/user.js'?") in
+               the DokuWiki Config Manager!
+
+  - Own boxes
+    To apply own boxes in the right column, have a look at
+    "mnml-blog/user/boxes.php". Don't worry: you will find some examples how to
+    define the boxes. If you still have questions after
+    playing with the examples, search the DokuWiki Forum at
+    <http://forum.dokuwiki.org> and/or ask the community if you can't get it
+    work. If "mnml-blog/user/boxes.php" does not exist, simply copy it out of
+    the current actual installation archive.
+
+  - Web analytics software (Piwik, Google Analytics etc.)
+    Tools like Piwik and Google Analytics normally provide a small code snippet
+    ("tag") which you have to include at your website to make everything work.
+    If you want to use such software with this template, have a look at
+    "mnml-blog/user/tracker.php". This file exists to make it easier for you.
+    You don't have to deliberate where you have to copy and paste the code,
+    simply do it there.
+
+
+
+III. Some notes about the dirs of this template
+  * "mnml-blog/blogtng-tpl"
+    Contains a backup copy of the needed BlogTNG data template files (see
+    <http://www.dokuwiki.org/plugin:blogtng#templates> for details). See
+    "I. Using/Installing the template" of this README for installation
+    instructions.
+  * "mnml-blog/conf"
+    Contains some configuration files (do NOT edit them!), especially
+    default.php:  default settings, see
+                  <http://www.dokuwiki.org/devel:configuration#default_settings>
+    metadata.php: configuration metadata, see
+                  <http://www.dokuwiki.org/devel:configuration#configuration_metadata>
+  * "mnml-blog/lang"
+    Language files (subdir names = language code). You may copy the English
+    language files and translate them if your language is missing. Simply mail
+    me, Andreas Haerter, the translated files and I will include them in the
+    next release :-D.
+  * "mnml-blog/css"
+    All Cascading Style Sheets (CSS). See <http://j.mp/eq8zSo> for more
+    information about how the CSS is handled.
+  * "mnml-blog/images"
+    Images files.
+  * "nml-blog/js"
+    JavaScript files.
+  * "mnml-blog/user"
+    Place for userdefined stuff. E.g. if you want use an own logo, simply copy a
+    logo.[png|gif|jpg] in here. See "II. Customizing the template" for details.
+  * "mnml-blog/user"
+    Place for userdefined stuff. E.g. if you want use an own logo, simply copy a
+    logo.[png|gif|jpg] in here. See "II. Customizing the template" for details.
+
+
+
+IV. Other notes
+  - Even if it is not required: If you like the template, think about a small
+    donation (see <http://andreas-haerter.com/donate/dokuwiki-template-mnml-blog>)
+    and/or a link to <http://andreas-haerter.com/projects/dokuwiki-template-mnml-blog>.
+    Thanks :-).
+
+  - This template follows the DokuWiki coding style (see
+    <http://www.dokuwiki.org/devel:coding_style>). If you want to submit any
+    patches, please respect its rules (even if you don't like it - I also don't
+    love it but this simply does not matter).
+
+  - Feel free to send patches or suggestions via mail (or post on
+    <http://www.dokuwiki.org/template:mnml-blog>).
+
+  - Please don't delete the "index.html" and ".htaccess" files for security
+    reasons, even if you don't know why they are there. These files should
+    prevent others from listing directory contents (a built in feature of most
+    webservers) and providing additional access protection for some files. Even
+    if everything should be secure without, I prefer some additional
+    precautions.
+
+
+
+V. About
+  "mnml-blog" is a clean and minimalist template for DokuWiki. It is designed to
+  use DokuWiki as blogging software. It was created by me (Andreas Haerter)
+  mainly for my own blog at <http://blog.andreas-haerter.com>. The name means
+  "minimalist blog". If you have any suggestions and/or bug reports, look out
+  for report possibilities on <http://www.dokuwiki.org/template:mnml-blog>, feel
+  free to send me an email or have a look at <http://andreas-haerter.com/contact>.
+
+
+
+VI. Creation transcript
+  Some developers may find this interesting. Additionally, I am very oblivious
+  :-P.
+
+  - In principle, I followed <http://j.mp/eq8zSo>. There was just no "starter"
+    template when "mnml-blog" was created. Therefore, after ~1 year, I switched
+    the CSS base from DokuWiki's default template to
+    <http://www.dokuwiki.org/template:starter> but the markup of "main.php" is
+    still based the "main.php" out of the "default" template.
+
+  - Worked worked worked.... and done! :-P
+
