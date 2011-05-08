@@ -890,15 +890,17 @@ div.picker button.pickerbutton {
     left: 0;
     top: 5em;
     width: 97%;
+    line-height: 1.5em; /* needed for long titles to prevent scrollbars in Opera */
 }
 #tmpl_header form.search #qsearch__out {
     width: 20em;
     left: -23.5em;
-    overflow: auto; /* for Chrome */
+    overflow: auto; /* for Chrome and Safari */
 }
 .dokuwiki form.search div.ajax_qsearch ul li {
-    margin-top: 6px;
-    overflow: auto; /* for Chrome */
+    margin-top: 4px;
+    margin-bottom: 4px;
+    width: 99%;
 }
 
 
