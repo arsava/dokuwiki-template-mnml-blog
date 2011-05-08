@@ -373,7 +373,7 @@ tpl_content(false);
             </div>
             <div class="clearer"></div>
             <div id="tmpl_footer_metainfo">
-                <a href="http://andreas-haerter.com/projects/dokuwiki-template-mnml-blog">mnml-blog</a> on <a href="http://www.dokuwiki.org/">DW</a> under the hood.
+                <a href="http://andreas-haerter.com/projects/dokuwiki-template-mnml-blog">mnml-blog</a> on <a href="http://www.dokuwiki.org/">DW</a> under the hood
                 <?php
                 if (!empty($loginname)){
                     echo " | ";
