@@ -319,6 +319,10 @@ div#pagewrap.admin div#tmpl_sidebar {
     text-align: center;
     padding-bottom: 0.4em;
 }
+.dokuwiki form#dw__register input.edit {
+    font-weight: normal;
+    margin-left: 0.4em;
+}
 
 
 
