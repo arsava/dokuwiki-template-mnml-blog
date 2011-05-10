@@ -323,6 +323,9 @@ div#pagewrap.admin div#tmpl_sidebar {
     font-weight: normal;
     margin-left: 0.4em;
 }
+.dokuwiki form#dw__register fieldset {
+   width: 455px;
+}
 
 
 
@@ -408,7 +411,8 @@ legend {
     clear: none;
 }
 legend {
-    #font-family: Arial,Helvetica,sans-serif;; /* fix MSIE 6/7 */
+    text-align: left; /* needed for webkit browsers */
+    #font-family: Arial,Helvetica,sans-serif; /* fix MSIE 6/7 */
 }
 
 a:link,
@@ -751,6 +755,8 @@ div.dokuwiki button.button {
     font-weight: bold;
     font-size: 10px !important;
     padding: 5px 6px;
+    line-height: 1.333em;
+    #line-height: 1em; /* fix MSIE 6, 7 */
 }
 div.dokuwiki input.button[type=image],
 div.dokuwiki button.button[type=image] {
