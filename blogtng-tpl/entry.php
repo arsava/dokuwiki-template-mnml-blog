@@ -57,7 +57,7 @@
         }
         if ($entry->commenthelper->get_count() >= 1){
             echo "\n    <div class=\"level2\">\n        <h2 class=\"hspec\">".$entry->getLang("comments")."</h2>\n";
-            $entry->tpl_comments("main");
+            $entry->tpl_comments($entry->entry["blog"]);
             echo "\n    </div>\n";
         }
         //show form to leave a comment
