@@ -26,7 +26,7 @@
 ?>
 <li><div class="li">
     <?php $comment->tpl_name(); ?>
-    on „<a href="<?php $entry->tpl_link(); ?>#comment_<?php $comment->tpl_cid(); ?>" class="wikilink1"><?php $entry->tpl_title(); ?></a>“
+    on „<a href="<?php $entry->tpl_link("comment_".$comment->data["cid"]); ?>" class="wikilink1"><?php $entry->tpl_title(); ?></a>“
     (<?php $comment->tpl_created("%f"); ?>)
 </div></li>
 
