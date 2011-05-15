@@ -373,8 +373,9 @@ tpl_content(false);
             </div>
             <div class="clearer"></div>
             <div id="tmpl_footer_metainfo">
-                <a href="http://andreas-haerter.com/projects/dokuwiki-template-mnml-blog">mnml-blog</a> on <a href="http://www.dokuwiki.org/">DW</a> under the hood
                 <?php
+                //Note: you are NOT allowed to remove the following notice. Please respect this!
+                echo "<a href=\"http://andreas-haerter.com/projects/dokuwiki-template-mnml-blog\">mnml-blog</a> on <a href=\"http://www.dokuwiki.org/\">DW</a> under the hood\n";
                 if (!empty($loginname)){
                     echo " | ";
                     tpl_pageinfo();

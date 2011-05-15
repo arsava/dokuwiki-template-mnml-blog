@@ -1021,7 +1021,7 @@ div.picker button.pickerbutton {
     margin-left: 0.2em;
     font-weight: normal;
 }
-/* main_entry.php only (not included on the default BlogTNG install!) */
+/* main_entry.php only */
 .dokuwiki div.blogtng_entry div#commentform_notes {
     font-size: 75%;
     margin-top: 0.7em;
@@ -1035,7 +1035,6 @@ div.picker button.pickerbutton {
     float: right;
     margin-right: 1em;
 }
-
 /* page navigation */
 .blogtng_pagination .blogtng_pages .cur,
 .blogtng_pagination .blogtng_pages a,
@@ -1068,6 +1067,9 @@ div#pagewrap.admin #blogtng__edit label.edit {
 }
 div#pagewrap.admin #blogtng__edit #blogtng__date_hh {
     margin-left: 1.2em;
+}
+div#pagewrap.admin #blogtng__tags {
+    width: 275px !important;
 }
 
 
