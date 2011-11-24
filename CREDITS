@@ -1,6 +1,6 @@
 Title: Credits of the mnml-blog template for DokuWiki
 Creation date: 2010-03-12
-Last Update: 2011-05-08
+Last Update: 2011-11-24
 Author: Andreas Haerter <development [ät] andreas-haerter.com>
 Web: <http://andreas-haerter.com>
      <http://andreas-haerter.com/projects/dokuwiki-template-mnml-blog>
@@ -11,3 +11,8 @@ This file lists contributors and contributions to this template for DokuWiki
 
  * This template is using The IE PNG Fix by Twin Helix.
    Have a look at <http://www.twinhelix.com/css/iepngfix/> for more information.
+
+
+ * Дмитрий Ефимов (Dmitriy Efimov)
+   Dmitriy Efimov contributed the Russian language files. Thank you for this!
+
