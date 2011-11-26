@@ -40,7 +40,6 @@ body {
     font: normal 100%/1.4em 'Liberation Sans',Arial,Helvetica,sans-serif;
     /* same font stack should be used for ".dokuwiki div.toc" */
 }
-
 h1, h1 a,
 h2, h2 a,
 h3, h3 a,
@@ -62,11 +61,12 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
     padding: 0.5em 0 0 5px;
     margin: 1.3em auto 0.1em 0 !important;
-   /* padding-left should be geared to margin-left of div.level1-5,
-      .dokuwiki div.diffoptions and .dokuwiki table.diff */
+    /* padding-left should be geared to margin-left of div.level1-5,
+       .dokuwiki div.diffoptions and .dokuwiki table.diff */
 }
 h1 {
     font-size: 1.571em; /* 22px, base 14px (see ".dokuwiki") */
@@ -136,7 +136,7 @@ hr,
 blockquote,
 fieldset,
 address {
-    margin: 0 0 1.4em 0; /* bottom margin = line-height */
+    margin: 0 0 1.4em 0;
     padding: 0;
 }
 div {
@@ -258,7 +258,6 @@ kbd {
     direction: ltr;
     text-align: left;
 }
-
 pre {
     overflow: auto;
 }
@@ -419,6 +418,7 @@ div.clearer {
 .dokuwiki blockquote {
     border-left-color: __border__;
 }
+
 /* code */
 .dokuwiki pre,
 .dokuwiki tt,
@@ -475,6 +475,7 @@ div.clearer {
 .dokuwiki dl.file dd {
     margin: 0;
 }
+
 /* tables */
 th,
 td {
@@ -491,7 +492,7 @@ div.dokuwiki table.inline th,
 div.dokuwiki table.inline tr {
     border: 1px solid #606060;
 }
-.dokuwiki table.inline td {
+div.dokuwiki table.inline td {
     border: 1px solid __text_alt__;
 }
 div.dokuwiki table.inline th {
@@ -505,9 +506,10 @@ div.dokuwiki table.inline tr:hover th,
 div.dokuwiki table.inline th:hover {
     background-color: __background_alt__;
 }
-.dokuwiki table.inline tr:hover td {
+div.dokuwiki table.inline tr:hover td {
     background-color: __background_alt__;
 }
+
 /* embedded images (styles are already partly set in lib/styles/style.css) */
 .dokuwiki img.medialeft {
     margin: .5em 1.5em .5em 0;
@@ -775,7 +777,6 @@ div#pagewrap {
     margin-top: 1em;
 }
 
-
 /* more width for all admin and edit actions */
 div#pagewrap.admin {
     width: 95%;
@@ -869,6 +870,12 @@ div#pagewrap.admin div#tmpl_sidebar {
 .dokuwiki table.diff {
     margin-left: 5px; /* should be geared to margin/padding-left for headlines
                          and div.level1-5 */
+}
+.dokuwiki table.diff td.diff-addedline,
+.dokuwiki table.diff td.diff-deletedline,
+.dokuwiki table.diff td.diff-context {
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 
@@ -1007,7 +1014,7 @@ div#pagewrap.admin div#tmpl_sidebar {
 div.insitu-footnote {
     background-color: #f7f9fa;
     border: 1px solid __border__;
-    padding: 2px 7px 2px 13px;
+    padding: 2px 7px 2px 15px;
     font-size: 0.857em; /* 12px, base 14px (see ".dokuwiki") */
 }
 * html div.insitu-footnote {
