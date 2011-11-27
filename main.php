@@ -153,7 +153,7 @@ if (file_exists(DOKU_TPLINC."user/favicon.ico")){
     //user defined - you might find http://tools.dynamicdrive.com/favicon/
     //useful to generate one
     echo "\n<link rel=\"shortcut icon\" href=\"".DOKU_TPL."user/favicon.ico\" />\n";
-} elseif (file_exists(DOKU_TPLINC."user/favicon.png")) {
+}elseif (file_exists(DOKU_TPLINC."user/favicon.png")){
     //note: I do NOT recommend PNG for favicons (cause it is not supported by
     //all browsers).
     echo "\n<link rel=\"shortcut icon\" href=\"".DOKU_TPL."user/favicon.png\" />\n";
@@ -164,7 +164,7 @@ if (file_exists(DOKU_TPLINC."user/favicon.ico")){
 
 //include default or userdefined Apple Touch Icon (see <http://j.mp/sx3NMT> for
 //details)
-if (file_exists(DOKU_TPLINC."user/apple-touch-icon.png")) {
+if (file_exists(DOKU_TPLINC."user/apple-touch-icon.png")){
     echo "<link rel=\"apple-touch-icon\" href=\"".DOKU_TPL."user/apple-touch-icon.png\" />\n";
 }else{
     //default
@@ -183,12 +183,13 @@ if (tpl_getConf("mnmlblog_loaduserjs")){
 <div id="pagewrap"<?php
     if ($ACT !== "show" && //speed up: check most common action first
         ($ACT === "admin" ||
+         $ACT === "conflict" ||
+         $ACT === "diff" ||
          $ACT === "draft" ||
          $ACT === "edit" ||
+         $ACT === "media" ||
          $ACT === "preview" ||
-         $ACT === "save" ||
-         $ACT === "conflict" ||
-         $ACT === "diff")){
+         $ACT === "save")){
         echo " class=\"admin\"";
     } ?>>
 
@@ -246,7 +247,7 @@ if (tpl_getConf("mnmlblog_loaduserjs")){
 
     <!-- start main content area -->
     <div class="dokuwiki">
-        <?php html_msgarea()?>
+        <?php html_msgarea(); ?>
 
         <!-- start left col -->
         <div id="content">
@@ -354,7 +355,17 @@ tpl_content(false);
 
         <div id="tmpl_footer">
             <div id="tmpl_footer_actlinksleft">
-                [&#160;<?php tpl_actionlink("top"); echo "&#160;|&#160;"; tpl_actionlink("index"); ?>&#160;]
+                <?php
+                echo "[&#160;";
+                tpl_actionlink("top");
+                if (actionOK("media")){ //check if action is disabled
+                    echo "&#160;|&#160;";
+                    tpl_actionlink("media");
+                }
+                echo "&#160;|&#160;";
+                tpl_actionlink("index");
+                echo "&#160;]";
+                ?>
             </div>
             <div id="tmpl_footer_actlinksright">
                 <?php
@@ -385,7 +396,7 @@ tpl_content(false);
             <div id="tmpl_footer_metainfo">
                 <?php
                 //Note: you are NOT allowed to remove the following notice. Please respect this!
-                echo "<a href=\"http://andreas-haerter.com/\">mnml-blog</a> on <a href=\"http://www.dokuwiki.org/\">DW</a> under the hood\n";
+                echo "<a href=\"http://andreas-haerter.com/\" target=\"_blank\">mnml-blog</a> on <a href=\"http://www.dokuwiki.org/\" target=\"_blank\">DW</a> under the hood\n";
                 if (!empty($loginname)){
                     echo " | ";
                     tpl_pageinfo();

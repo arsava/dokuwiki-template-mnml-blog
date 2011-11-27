@@ -344,10 +344,12 @@ button[readonly] {
     cursor: auto;
 }
 optgroup {
-    font-style: italic; font-weight: bold;
+    font-style: italic;
+    font-weight: bold;
 }
 option {
-    font-style: normal; font-weight: normal;
+    font-style: normal;
+    font-weight: normal;
 }
 
 /* general classes */
@@ -1014,7 +1016,7 @@ div#pagewrap.admin div#tmpl_sidebar {
 div.insitu-footnote {
     background-color: #f7f9fa;
     border: 1px solid __border__;
-    padding: 2px 7px 2px 15px;
+    padding: 2px 7px 2px 10px;
     font-size: 0.857em; /* 12px, base 14px (see ".dokuwiki") */
 }
 * html div.insitu-footnote {
