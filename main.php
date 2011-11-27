@@ -393,10 +393,10 @@ tpl_content(false);
                 }
                 if (!empty($loginname)){
                     echo  "&#160;|&#160;"
-                         ."<a href=\"".hsc(wl(cleanID(tpl_getConf("mnmlblog_newpostform_location"))))."\" rel=\"nofollow\">New Post</a>"; //"create new posting"
+                         ."<a href=\"".hsc(wl(cleanID(tpl_getConf("mnmlblog_newpostform_location"))))."\" rel=\"nofollow\">".hsc($lang["mnmlblog_lnk_newposting"])."</a>"; //create "new posting"
                 }else{
                     echo  "&#160;|&#160;"
-                         ."<a href=\"".hsc(wl(cleanID(tpl_getConf("mnmlblog_newpostform_location")), array("do" => "login")))."\" rel=\"nofollow\">New Post</a>"; //show needed login before "create new posting"
+                         ."<a href=\"".hsc(wl(cleanID(tpl_getConf("mnmlblog_newpostform_location")), array("do" => "login")))."\" rel=\"nofollow\">".hsc($lang["mnmlblog_lnk_newposting"])."</a>"; //show needed login before create "new posting"
                 }
                 if (!empty($INFO["isadmin"]) ||  //$INFO comes from DokuWiki core
                     !empty($INFO["ismanager"])){

@@ -30,11 +30,12 @@ if (!defined("DOKU_INC")){
     die();
 }
 
-//links (not used by default but useful for /user/boxes.php)
+//links (not all are used by default but may be useful for /user/boxes.php)
 $lang["mnmlblog_lnk_print"] = "Printable version";
 $lang["mnmlblog_lnk_permrev"] = "Permanent link";
 $lang["mnmlblog_lnk_whatlinkshere"] = "What links here";
 $lang["mnmlblog_lnk_siteindex"] = "Site index";
+$lang["mnmlblog_lnk_newposting"] = "New posting";
 
 //other
 $lang["mnmlblog_search"] = "Search";
