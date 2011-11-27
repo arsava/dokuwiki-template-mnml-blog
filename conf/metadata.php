@@ -49,6 +49,7 @@ $meta["mnmlblog_search"]     = array("onoff");
 $meta["mnmlblog_search_pos"] = array("multichoice", "_choices" => array("sidebar", "headernav"));
 
 //other stuff
-$meta["mnmlblog_newpostform_location"] = array("string");
-$meta["mnmlblog_loaduserjs"]           = array("onoff");
+$meta["mnmlblog_newpostform_location"]   = array("string");
+$meta["mnmlblog_hideadminlinksfromanon"] = array("onoff");
+$meta["mnmlblog_loaduserjs"]             = array("onoff");
 

@@ -49,6 +49,7 @@ $conf["mnmlblog_search"]     = true; //TRUE: use/show search
 $conf["mnmlblog_search_pos"] = "sidebar"; //sidebar or headernav
 
 //other stuff
-$conf["mnmlblog_newpostform_location"] = ":wiki:create_new_blogpost"; //page/article used to store the form to create a new blog post
-$conf["mnmlblog_loaduserjs"]           = false; //TRUE: mnml-blog/user/user.js will be loaded
+$conf["mnmlblog_newpostform_location"]   = ":wiki:create_new_blogpost"; //page/article used to store the form to create a new blog post
+$conf["mnmlblog_hideadminlinksfromanon"] = false; //TRUE: hide admin links if client is not an authenticated user (including login link -> you have to call "example.com?do=login" manually)
+$conf["mnmlblog_loaduserjs"]             = false; //TRUE: mnml-blog/user/user.js will be loaded
 
