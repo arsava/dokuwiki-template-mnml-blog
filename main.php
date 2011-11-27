@@ -358,12 +358,10 @@ tpl_content(false);
                 <?php
                 echo "[&#160;";
                 tpl_actionlink("top");
-                if (actionOK("media")){ //check if action is disabled
+                if (actionOK("index")){ //check if action is disabled
                     echo "&#160;|&#160;";
-                    tpl_actionlink("media");
+                    tpl_actionlink("index");
                 }
-                echo "&#160;|&#160;";
-                tpl_actionlink("index");
                 echo "&#160;]";
                 ?>
             </div>
@@ -375,17 +373,38 @@ tpl_content(false);
                     echo "&#160;|&#160;";
                     tpl_actionlink("edit"); //"edit" handles edit/create/show
                 }
-                if (!empty($INFO["isadmin"]) ||  //$INFO comes from DokuWiki core
-                    !empty($INFO["ismanager"])){
-                    echo  "&#160;|&#160;"
-                         ."<a href=\"".hsc(wl(cleanID(tpl_getConf("mnmlblog_newpostform_location"))))."\" rel=\"nofollow\">New Post</a>"; //create new posting
+                if (!empty($INFO["exists"]) &&
+                    actionOK("revisions")){ //check if action is disabled
                     echo "&#160;|&#160;";
-                    tpl_actionlink("admin");
-                } else {
-                    echo  "&#160;|&#160;"
-                         ."<a href=\"".hsc(wl(cleanID(tpl_getConf("mnmlblog_newpostform_location")), array("do" => "login")))."\" rel=\"nofollow\">New Post</a>"; //create new posting
+                    tpl_actionlink("revisions");
+                }
+                if (!empty($loginname) &&
+                    $ACT === "show" &&
+                    actionOK("subscribe")){ //check if action is disabled
+                    echo "&#160;|&#160;";
+                    tpl_actionlink("subscribe");
+                }
+                if ((!empty($INFO["writable"]) || //$INFO comes from DokuWiki core
+                     !empty($INFO["isadmin"]) || //purpose of this template are "non-wiki" websites, therefore show this link only to users with write permission and admins
+                     !empty($INFO["ismanager"])) &&
+                    actionOK("media")){ //check if action is disabled
+                    echo "&#160;|&#160;";
+                    tpl_actionlink("media");
                 }
                 if (!empty($loginname)){
+                    echo  "&#160;|&#160;"
+                         ."<a href=\"".hsc(wl(cleanID(tpl_getConf("mnmlblog_newpostform_location"))))."\" rel=\"nofollow\">New Post</a>"; //"create new posting"
+                }else{
+                    echo  "&#160;|&#160;"
+                         ."<a href=\"".hsc(wl(cleanID(tpl_getConf("mnmlblog_newpostform_location")), array("do" => "login")))."\" rel=\"nofollow\">New Post</a>"; //show needed login before "create new posting"
+                }
+                if (!empty($INFO["isadmin"]) ||  //$INFO comes from DokuWiki core
+                    !empty($INFO["ismanager"])){
+                    echo "&#160;|&#160;";
+                    tpl_actionlink("admin");
+                }
+                if (!empty($loginname) &&
+                    actionOK("profile")){ //check if action is disabled
                     echo "&#160;|&#160;";
                     tpl_actionlink("profile");
                 }

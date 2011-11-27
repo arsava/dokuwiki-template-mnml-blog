@@ -34,7 +34,6 @@ if (!defined("DOKU_INC")){
 $lang["mnmlblog_lnk_print"] = "Versión para imprimir";
 $lang["mnmlblog_lnk_permrev"] = "Categoría Padre";
 $lang["mnmlblog_lnk_whatlinkshere"] = "Qué enlace es este";
-$lang["mnmlblog_lnk_upload"] = "Subir fichero";
 $lang["mnmlblog_lnk_siteindex"] = "Página de inicio";
 
 //other

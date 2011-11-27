@@ -49,7 +49,7 @@ $_mnmlblog_boxes["qrcode"]["xhtml"] = '<div style="text-align:center;"><img src=
 /*
 //subscribe
 $_mnmlblog_boxes["syndication"]["headline"] = "Syndiaction/RSS Feed";
-$_mnmlblog_boxes["syndication"]["xhtml"] = '<a href="feed.php?mode=blogtng&amp;blog=default" rel="nofollow">Subscribe to posts</a>'; //ATTENTION: if not default, replace blog=default with the blogtng-template you are using!
+$_mnmlblog_boxes["syndication"]["xhtml"] = '<a href="'.DOKU_URL.'feed.php?mode=blogtng&amp;blog=default" rel="nofollow">Subscribe to posts</a>'; //ATTENTION: if not default, replace blog=default with the blogtng-template you are using!
 */
 
 
@@ -132,7 +132,7 @@ if (!empty($loginname)){ //$loginname comes from main.php
         $_mnmlblog_boxes["userlnk"]["xhtml"] .= "    <li><a href=\"".wl(cleanID(getId()), array("do" => "edit", "rev" => (int)$rev))."\" rel=\"nofollow\">".hsc($lang["btn_source"])."</a></li>\n"; //language comes from DokuWiki core, $rev comes from main.php
     }
 
-    $_mnmlblog_boxes["userlnk"]["xhtml"] .=  "    <li><a href=\"".DOKU_BASE."lib/exe/mediamanager.php?ns=".getNS(getID())."\" rel=\"nofollow\">".hsc($lang["mnmlblog_lnk_upload"])."</a></li>\n"
+    $_mnmlblog_boxes["userlnk"]["xhtml"] .=  "    <li><a href=\"".wl("", array("do" => "media"))."\" rel=\"nofollow\">".hsc($lang["btn_media"])."</a></li>\n" //language comes from DokuWiki core
                                             ."    <li><a href=\"".wl(cleanID(getId()), array("do" => "revisions"))."\" rel=\"nofollow\">".hsc($lang["btn_revs"])."</a></li>\n" //language comes from DokuWiki core
                                             ."    <li><a href=\"".wl(cleanID(getId()), array("rev" =>(int)$rev))."\" rel=\"nofollow\">".hsc($lang["mnmlblog_lnk_permrev"])."</a></li>\n"; //$rev comes from main.php
     //admin

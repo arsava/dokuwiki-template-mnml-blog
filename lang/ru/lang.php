@@ -34,7 +34,6 @@ if (!defined("DOKU_INC")){
 $lang["mnmlblog_lnk_print"] = "Версия для печати";
 $lang["mnmlblog_lnk_permrev"] = "Постоянная ссылка";
 $lang["mnmlblog_lnk_whatlinkshere"] = "Ссылки сюда";
-$lang["mnmlblog_lnk_upload"] = "Загрузить файд";
 $lang["mnmlblog_lnk_siteindex"] = "Индекс сайта";
 
 //other
