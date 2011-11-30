@@ -35,6 +35,7 @@ $lang["mnmlblog_lnk_print"] = "Druckversion";
 $lang["mnmlblog_lnk_permrev"] = "Permanentlink";
 $lang["mnmlblog_lnk_whatlinkshere"] = "Links auf diese Seite";
 $lang["mnmlblog_lnk_siteindex"] = "Seitenindex";
+$lang["mnmlblog_lnk_upload"] = "Hochladen";
 $lang["mnmlblog_lnk_newposting"] = "Neuer Eintrag";
 
 //other
