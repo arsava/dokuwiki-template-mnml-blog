@@ -72,7 +72,7 @@
                  ."                <li><strong>Quotation:</strong><br />&#62; This is a quote. Don't forget the space in front of the text: \"&#62; \"</li>\n"
                  ."            </ul>\n"
                  ."            <ul id=\"commentform_notes_right\">\n"
-                 ."                <li><strong>Code:</strong><br />&lt;code&gt;This is unspecific source code&lt;/code&gt;<br />&lt;code php&gt;&lt;?php echo 'PHP'; ?&gt;&lt;/code&gt;<br />&lt;code html&gt;&lt;strong&gt;(X)HTML&lt;/strong&gt;&lt;/code&gt;<br />&lt;code css&gt;font-family: Arial,Helvetica;&lt;/code&gt;<br />&lt;code javascript&gt;alert('JS');&lt;/code&gt;<br />&lt;code c&gt;printf('C');&lt;/code&gt;<br />&lt;code cpp&gt;std::cout << 'CPP';&lt;/code&gt;<br />&lt;code java&gt;System.out.println('Java');&lt;/code&gt;</li>\n"
+                 ."                <li><strong>Code:</strong><br />&lt;code&gt;This is unspecific source code&lt;/code&gt;<br />&lt;code php&gt;&lt;?php echo 'PHP'; ?&gt;&lt;/code&gt;<br />&lt;code html&gt;&lt;strong&gt;(X)HTML&lt;/strong&gt;&lt;/code&gt;<br />&lt;code css&gt;font-family: Arial,Helvetica;&lt;/code&gt;<br />&lt;code javascript&gt;alert('JS');&lt;/code&gt;<br />&lt;code c&gt;printf('C');&lt;/code&gt;<br />&lt;code cpp&gt;std::cout &lt;&lt; 'CPP';&lt;/code&gt;<br />&lt;code java&gt;System.out.println('Java');&lt;/code&gt;</li>\n"
                  ."            </ul>\n"
                  ."            <div class=\"clear\"></div>\n"
                  ."        </div>\n"
