@@ -1310,6 +1310,7 @@ html.popup #mediamgr__aside ul.idx {
     left: 0;
     top: 5em;
     width: 97%;
+    min-width: 170px; /* needed for IE, Webkit and Opera. Gecko is doing fine. */
     line-height: 1.5em; /* needed for long titles to prevent scrollbars in Opera */
 }
 #tmpl_header form.search #qsearch__out {

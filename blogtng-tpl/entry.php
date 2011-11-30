@@ -73,7 +73,7 @@
                  ."            </ul>\n"
                  ."            <ul id=\"commentform_notes_right\">\n"
                  ."                <li><strong>Code:</strong><br />&lt;code&gt;This is unspecific source code&lt;/code&gt;<br />&lt;code [lang]&gt;This is specifc [lang] code&lt;/code&gt;<br />&lt;code php&gt;&lt;?php echo 'example'; ?&gt;&lt;/code&gt;<br />Available: html, css, javascript, bash, cpp, …</li>\n"
-                 ."                <li><strong>Lists:</strong><br />Indent your text by two spaces and use a * for<br />unordered lists or a - for ordered ones.</li>\n"
+                 ."                <li><strong>Lists:</strong><br />Indent your text by two spaces and use a * for<br />each unordered list item or a - for ordered ones.</li>\n"
                  ."            </ul>\n"
                  ."            <div class=\"clear\"></div>\n"
                  ."        </div>\n"
