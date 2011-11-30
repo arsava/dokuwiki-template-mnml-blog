@@ -250,7 +250,7 @@ if (tpl_getConf("mnmlblog_loaduserjs")){
         <?php html_msgarea(); ?>
 
         <!-- start left col -->
-        <div id="content">
+        <div id="content"<?php echo (($ACT === "media") ? " class=\"mediamanagerfix\"" : ""); ?>>
             <div class="page">
                 <?php
                 $toc = tpl_toc(true);

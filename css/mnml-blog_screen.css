@@ -1216,7 +1216,59 @@ html.popup #mediamgr__aside ul.idx {
  ******** Adjust the starter template styles: _media_fullscreen.css  **********
  ******** Have a look at http://j.mp/eq8zSo for more information     **********
  ******************************************************************************/
-/* FIXME */
+#mediamanager__page h2,
+#mediamanager__page h3 {
+    font-size: 12px !important;
+    font-family: 'Liberation Sans',Arial,Helvetica,sans-serif;
+    line-height: 1.5em !important;
+    font-weight: normal !important;
+    padding: 3px 10px !important;
+}
+#mediamanager__page div.namespaces h2 {
+    margin-bottom: 0 !important;
+    border-bottom: 0;
+}
+#mediamanager__page div.namespaces div.panelHeader {
+    font-size: 12px !important;
+    line-height: 18px;
+    padding-top: 11px;
+}
+#mediamanager__page h3,
+#mediamanager__page ul.tabs li {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 12px !important;
+    line-height: 18px;
+}
+#mediamanager__page .panelHeader ul {
+    list-style-image: none !important;
+}
+#mediamanager__page .panelHeader ul .ui-buttonset {
+    font-size: 12px ;
+}
+#mediamanager__page .panelHeader ul li.ui-buttonset {
+    background-position: 3px 0;
+    padding-bottom: 3px;
+}
+#mediamanager__page .panelHeader div.no input.button {
+    padding: 1px;
+    line-height: 1em;
+}
+#mediamanager__page .panelHeader form.options {
+    height: 24px;
+    margin-top: -7px;
+}
+/* The ".mediamanagerfix" class gets assigned in main.php for the full screen
+   media manager only. */
+.dokuwiki div#content.mediamanagerfix {
+    min-height: 0; /* the automatic resize (JS) has many problems if a parent container got a min-height */
+}
+.dokuwiki div#content.mediamanagerfix h1 {
+    line-height: 1em;
+    margin-top: -10px !important;
+    margin-bottom: 15px !important;
+    padding-left: 0;
+}
 
 
 
