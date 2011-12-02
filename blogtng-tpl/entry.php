@@ -41,6 +41,7 @@
                       false,
                       //skip header
                       true); ?>
+    <div class="clearer"></div>
     <div class="blogtng_footer">
         <div class="level1">
             <?php $entry->tpl_created("%Y-%m-%d @ %H:%M"); ?> |

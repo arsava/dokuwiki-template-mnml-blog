@@ -44,7 +44,7 @@
                       //skip header
                       true);
 ?>
-
+    <div class="clearer"></div>
     <div class="blogtng_footer">
         <div class="level1">
             <a href="<?php $entry->tpl_link("the__comments"); ?>" class="wikilink1 blogtng_commentlink"><?php $entry->tpl_commentcount($lang["0comments"], $lang["1comments"], $lang["Xcomments"]); //language comes from BlogTNG ?></a> |
