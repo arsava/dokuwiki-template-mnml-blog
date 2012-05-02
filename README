@@ -42,7 +42,7 @@
     See the BlogTNG plugin page[2] or my tutorial[4] for details.
 
     Update:
-    See the template website for instructions[5].
+    See the mnml-blog template website for instructions[5].
 
     [1] <http://www.dokuwiki.org/template>
     [2] <http://www.dokuwiki.org/plugin:blogtng>
@@ -83,7 +83,7 @@
       To apply additional CSS rules, edit "mnml-blog/user/screen.css"
       (influences normal layout) and/or "mnml-blog/user/print.css" (influences
       print layout) and/or "mnml-blog/user/rtl.css" (influences "right-to-left"
-      languages like hebrew). These files will be included automatically (as the
+      languages like Hebrew). These files will be included automatically (as the
       last ones for the relevant media, therefore you are able to overrule
       existing styles). Do not forget to empty your browser's cache afterwards.
 
@@ -143,7 +143,7 @@
 
     Feel free to submit patches as GitHub pull requests (preferred) or by mail
     as well. However, please try to respect the DokuWiki coding style[3] as this
-    plugin follows its rules.
+    template follows its rules.
 
     [1] <https://github.com/bitkollektiv/dokuwiki-template-mnml-blog/issues>
     [2] Andreas Haerter <ah@bitkollektiv.org>
