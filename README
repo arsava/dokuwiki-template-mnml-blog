@@ -1,21 +1,21 @@
 
   I. About
 
-    "mnml-blog"[1] is a clean and minimalist template for DokuWiki. It is
-    designed to use DokuWiki as blogging software. The name means "minimalist
-    blog".
+    "mnml-blog" is a clean and minimalist template for DokuWiki. It is designed
+    to use DokuWiki as blogging software. The name means "minimalist blog", and
+    it was created for my personal weblog[1].
 
-    It was created by me (Andreas Haerter[2]) mainly for my own blog[3].
+    Website:     <http://www.dokuwiki.org/template:mnml-blog>
+    Maintainer:  Andreas Haerter <http://andreas-haerter.com/>
+    Contact:     See "IV. Support" and "V. Contact".
 
-    [1] <http://www.dokuwiki.org/template:mnml-blog>
-    [2] <http://andreas-haerter.com/>
-    [3] <http://blog.andreas-haerter.com/>
+    [1] <http://blog.andreas-haerter.com/>
 
 
 
   II. Installation and update
 
-    Fist step:
+    First step:
     The basic installation works as described[1] on DokuWiki.org. Extract the
     downloaded archive into your DokuWiki's "lib/tpl/" folder. Then select the
     template in the Config Manager by adjusting the template option.
@@ -211,8 +211,8 @@
     In principle, I followed my own tutorial[1]. There was just no "starter"
     template[2] when "mnml-blog" was created. Therefore, after ~1 year, I
     switched the CSS base from DokuWiki's default template to the starter
-    template but the markup of "main.php" is still based the "main.php" out of
-    the "default" template.
+    template, but the markup of "main.php" is still based on the default
+    template's "main.php".
 
     [1] <http://j.mp/eq8zSo>
     [2] <http://www.dokuwiki.org/template:starter>
