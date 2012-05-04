@@ -3,7 +3,7 @@
 
     "mnml-blog" is a clean and minimalist template for DokuWiki. It is designed
     to use DokuWiki as blogging software. The name means "minimalist blog", and
-    it was created for my personal weblog[1].
+    it was created for my personal weblog [1].
 
     Website:     <http://www.dokuwiki.org/template:mnml-blog>
     Maintainer:  Andreas Haerter <http://andreas-haerter.com/>
@@ -16,19 +16,19 @@
   II. Installation and update
 
     First step:
-    The basic installation works as described[1] on DokuWiki.org. Extract the
+    The basic installation works as described [1] on DokuWiki.org. Extract the
     downloaded archive into your DokuWiki's "lib/tpl/" folder. Then select the
     template in the Config Manager by adjusting the template option.
 
     Second step:
-    Check if the BlogTNG plugin[2] is installed and up2date. This template is
+    Check if the BlogTNG plugin [2] is installed and up2date. This template is
     designed for the usage with the BlogTNG-Plugin *only* (it may work for other
     purposes, but they are not tested or supported)!
 
     Third step:
-    The files in "lib/tpl/mnml-blog/blogtng-tpl" are a BlogTNG data template[3].
-    Please copy these files into all used BlogTNG data template dirs below
-    "lib/plugins/blogtng/tpl".
+    The files in "lib/tpl/mnml-blog/blogtng-tpl" are a BlogTNG data
+    template [3]. Please copy these files into all used BlogTNG data template
+    dirs below "lib/plugins/blogtng/tpl".
     Hint: By default, there is only "lib/plugins/blogtng/tpl/default". You may
           overwrite the existing files in there (but remember: you have to do
           this again on every BlogTNG-Update then!).
@@ -39,10 +39,10 @@
     page for the '<blog newform>' form") points to (default is
     ":wiki:create_new_blogpost") and create a wiki <blog newform> page there
     (the "New Post" link at the bottom right of the footer is using this link).
-    See the BlogTNG plugin page[2] or my tutorial[4] for details.
+    See the BlogTNG plugin page [2] or my tutorial [4] for details.
 
     Update:
-    See the mnml-blog template website for instructions[5].
+    See the mnml-blog template website for instructions [5].
 
     [1] <http://www.dokuwiki.org/template>
     [2] <http://www.dokuwiki.org/plugin:blogtng>
@@ -75,7 +75,7 @@
       in "mnml-blog/user". The template recognizes the file automatically and
       will use it instead of the default one. Do not forget to empty your
       browser's cache afterwards. By the way: you might find the online
-      FavIcon Generator[1] useful.
+      FavIcon Generator [1] useful.
       Note: "favicon.png" is also possible but not recommended (because it is
             not supported by older MSIE versions).
 
@@ -124,9 +124,9 @@
 
   IV. Support
 
-    If you need help, check the FAQ[1] and try to find useful information by
-    using the DokuWiki Search page[2]. If you found nothing helpful, ask your
-    question at the DokuWiki forum[3] (preferred) or IRC channel[4].
+    If you need help, check the FAQ [1] and try to find useful information by
+    using the DokuWiki Search page [2]. If you found nothing helpful, ask your
+    question at the DokuWiki forum [3] (preferred) or IRC channel [4].
 
     [1] <http://www.dokuwiki.org/template:mnml-blog#faq>
     [2] <http://search.dokuwiki.org/>
@@ -137,13 +137,13 @@
 
   V. Contact
 
-    If you think you found a bug or you got a useful idea (a.k.a. "feature
-    request"), create an issue[1] on GitHub (preferred), or contact me by
-    mail[2].
+    If you think you have found a bug or have a useful idea (a.k.a. "feature
+    request"), create an issue [1] on GitHub (preferred), or contact me by
+    mail [2].
 
     Feel free to submit patches as GitHub pull requests (preferred) or by mail
-    as well. However, please try to respect the DokuWiki coding style[3] as this
-    template follows its rules.
+    as well. However, please try to respect the DokuWiki coding style [3] as
+    this template follows its rules.
 
     [1] <https://github.com/bitkollektiv/dokuwiki-template-mnml-blog/issues>
     [2] Andreas Haerter <ah@bitkollektiv.org>
@@ -153,11 +153,12 @@
 
   VI. Other notes
 
-    If you like this free project, you might buy me a coffee[1], or get some
-    cool QR Code merchandise[2]. Thank you! :-)
+    If you like this free project, you might buy me a coffee [1], or get some
+    cool QR Code merchandise [2]. Thank you! :-)
 
     I am no native English speaker. If you find any errors please let me
-    know[3]. Otherwise, my English is not getting better (as desired by myself).
+    know [3]. Otherwise, my English is not getting better (as desired by
+    myself).
 
     [1] <http://bitkollektiv.org/donate/dokuwiki-template-mnml-blog/>
     [2] <http://goqr.me/>
@@ -173,8 +174,8 @@
 
     - "mnml-blog/conf"
       Contains some configuration files (do NOT edit them!), especially
-        - default.php: default settings[1]
-        - metadata.php: configuration metadata[2]
+        - default.php: default settings [1]
+        - metadata.php: configuration metadata [2]
 
     - "mnml-blog/lang"
       Language files (subdir names = language code). You may copy the English
@@ -183,7 +184,7 @@
       next release :-D.
 
     - "mnml-blog/css"
-      All Cascading Style Sheets (CSS). See my tutorial[3] for more information
+      All Cascading Style Sheets (CSS). See my tutorial [3] for more information
       about how the CSS is handled.
 
     - "mnml-blog/images"
@@ -208,8 +209,8 @@
     Some developers may find this interesting. Additionally, I am very oblivious
     :-P.
 
-    In principle, I followed my own tutorial[1]. There was just no "starter"
-    template[2] when "mnml-blog" was created. Therefore, after ~1 year, I
+    In principle, I followed my own tutorial [1]. There was just no "starter"
+    template [2] when "mnml-blog" was created. Therefore, after ~1 year, I
     switched the CSS base from DokuWiki's default template to the starter
     template, but the markup of "main.php" is still based on the default
     template's "main.php".
