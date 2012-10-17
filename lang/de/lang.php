@@ -40,7 +40,7 @@ $lang["mnmlblog_lnk_newposting"] = "Neuer Eintrag";
 //other
 $lang["mnmlblog_search"] = "Suche";
 $lang["mnmlblog_accessdenied"] = "Zugriff verweigert";
-$lang["mnmlblog_fillplaceholder"] = "Diesen Platzhalter bitte füllen";
+$lang["mnmlblog_fillplaceholder"] = "Diesen Platzhalter bitte füllen oder deaktivieren";
 $lang["mnmlblog_donate"] = "Spenden";
 $lang["mnmlblog_templatefordw"] = "mnml-blog-Template für DokuWiki";
 $lang["mnmlblog_recentchanges"] = "Neuste Änderungen";
