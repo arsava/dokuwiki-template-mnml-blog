@@ -252,12 +252,7 @@ if (tpl_getConf("mnmlblog_loaduserjs")){
         <!-- start left col -->
         <div id="content"<?php echo (($ACT === "media") ? " class=\"mediamanagerfix\"" : ""); ?>>
             <div class="page">
-                <?php
-                $toc = tpl_toc(true);
-                if ($toc){
-                    echo $toc;
-                    echo "<div class=\"clearer\"></div>\n";
-                } ?>
+
 
 <!-- start rendered page content -->
 <?php
@@ -420,7 +415,7 @@ tpl_content(false);
             <div class="clearer"></div>
             <div id="tmpl_footer_metainfo">
                 <?php
-                //Note: you are NOT allowed to remove the following notice. Please respect this!
+                //Note: do NOT remove the following mnml-blog and/or DokuWiki link/notice. Please respect this. :-)
                 echo "<a href=\"http://syn-systems.com/\" target=\"_blank\">mnml-blog</a> on <a href=\"http://www.dokuwiki.org/\" target=\"_blank\">DW</a> under the hood\n";
                 if (!empty($loginname)){
                     echo " | ";

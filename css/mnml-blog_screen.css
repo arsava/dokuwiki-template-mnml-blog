@@ -37,7 +37,7 @@ html {
 body {
     margin: 0 auto;
     background-color: #efeded;
-    font: normal 100%/1.4em 'Liberation Sans',Arial,Helvetica,sans-serif;
+    font: normal 100%/1.4em Arial,Helvetica,'Liberation Sans',sans-serif;
     /* same font stack should be used for ".dokuwiki div.toc" */
 }
 h1, h1 a,
@@ -46,8 +46,8 @@ h3, h3 a,
 h4, h4 a,
 h5, h5 a,
 h6, h6 a {
-    font-family: 'Liberation Sans',Arial,Helvetica,sans-serif;
-    /* same font stack should be used for ".dokuwiki div.tocheader" */
+    font-family: Arial,Helvetica,'Liberation Sans',sans-serif;
+    /* same font stack should be used for ".dokuwiki div.toc div.tocheader" */
     font-weight: normal;
     color: __text__;
     background-color: inherit;
@@ -122,7 +122,7 @@ legend {
 }
 legend {
     text-align: left; /* needed for webkit browsers */
-    #font-family: 'Liberation Sans',Arial,Helvetica,sans-serif; /* fix MSIE 6/7 */
+    #font-family: Arial,Helvetica,'Liberation Sans',sans-serif; /* fix MSIE 6/7 */
 }
 
 /* basic margins and paddings */
@@ -568,7 +568,7 @@ div#pagewrap {
 #tmpl_header a.tmpl_header_logo_txt:active {
     display: block;
     padding: 0.7em 0 0.5em 0;
-    font-family: 'Liberation Sans',Arial,Helvetica,sans-serif;
+    font-family: Arial,Helvetica,'Liberation Sans',sans-serif;
     font-size: 3em; /* 48px (base: 16px) */
     line-height: 1em;
     text-transform: uppercase;
@@ -589,7 +589,7 @@ div#pagewrap {
 }
 /* header navigation (optional) */
 #tmpl_header #tmpl_header_nav {
-    font-family: 'Liberation Sans',Arial,Helvetica,sans-serif;
+    font-family: Arial,Helvetica,'Liberation Sans',sans-serif;
     font-size: 0.85em; /* 14px (base: 16px) */
     line-height: 1.4em; /* 19px (base: 14px) */
     background-color: #000;
@@ -910,11 +910,13 @@ div#pagewrap.admin div#tmpl_sidebar {
 .dokuwiki a.wikilink1,
 .dokuwiki a.wikilink1:link,
 .dokuwiki a.wikilink1:visited {
+    color: __existing__;
     border-bottom: 1px dashed __existing__;
 }
 .dokuwiki a.wikilink2,
 .dokuwiki a.wikilink2:link,
 .dokuwiki a.wikilink2:visited {
+    color: __missing__;
     border-bottom: 1px dashed __missing__;
 }
 .dokuwiki a.wikilink1:hover,
@@ -961,21 +963,23 @@ div#pagewrap.admin div#tmpl_sidebar {
 
 /******************************************************************************
  ******** Adjust the starter template styles: _toc.css             ************
+ ******** Old Table of contents (TOC), until DokuWiki 2012-01-25   ************
  ******** Have a look at http://j.mp/eq8zSo for more information   ************
  ******************************************************************************/
 .dokuwiki div.toc {
     float: left;
-    font-family: 'Liberation Sans',Arial,Helvetica,sans-serif;
+    font-family: Arial,Helvetica,'Liberation Sans',sans-serif;
     margin: 0 0 1.5em;
     padding: 0;
     width: 100%;
+    background-color: inherit;
 }
-.dokuwiki div.tocheader {
-    font-family: 'Liberation Sans',Arial,Helvetica,sans-serif;
+.dokuwiki div.toc div.tocheader {
+    font-family: Arial,Helvetica,'Liberation Sans',sans-serif;
     font-size: 1.429em; /* 20px, base 14px (see ".dokuwiki") */
     font-weight: normal;
 }
-.dokuwiki #toc__header {
+.dokuwiki div.toc #toc__header {
     background-color: transparent;
     border: 1px solid #606060;
     padding: 0.5em;
@@ -983,45 +987,113 @@ div#pagewrap.admin div#tmpl_sidebar {
 }
 /* see http://jonrohan.me/guide/css/creating-triangles-in-css/ for info about
    css arrows */
-.dokuwiki .toc span.toc_open,
-.dokuwiki .toc span.toc_close {
+.dokuwiki div.toc span.toc_open,
+.dokuwiki div.toc span.toc_close {
     border-color: transparent;
 }
-* html .dokuwiki .toc span.toc_open,
-* html .dokuwiki .toc span.toc_close {
+* html .dokuwiki div.toc span.toc_open,
+* html .dokuwiki div.toc span.toc_close {
     border-color: #fff; /* fix MSIE 6 */
 }
-.dokuwiki .toc span.toc_open {
+.dokuwiki div.toc span.toc_open {
     border-top-color: __text__ !important;
 }
-.dokuwiki .toc span.toc_close {
+.dokuwiki div.toc span.toc_close {
     border-bottom-color: __text__ !important;
 }
-.dokuwiki #toc__inside {
+.dokuwiki div.toc #toc__inside {
     background-color: transparent;
     border-right: 1px dotted #606060;
     border-left: 1px dotted #606060;
     border-bottom: 1px dotted #606060;
     color: __text__;
     padding-bottom: 7px !important;
+    clear: both;
 }
-.dokuwiki #toc__inside ul,
-.dokuwiki #toc__inside ul ul {
+.dokuwiki div.toc #toc__inside ul,
+.dokuwiki div.toc #toc__inside ul ul {
     padding-left: 1.7em;
 }
-.dokuwiki #toc__inside ul li {
+.dokuwiki div.toc #toc__inside ul li {
+    list-style: circle;
+    line-height: 1.8em;
+}
+.dokuwiki div.toc #toc__inside ul li div.li {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.dokuwiki div.toc #toc__inside a,
+.dokuwiki div.toc #toc__inside a:visited {
+    color: __text__;
+}
+.dokuwiki div.toc #toc__inside a,
+.dokuwiki div.toc #toc__inside a:visited {
+    color: __text__;
+}
+.dokuwiki div.toc #toc__inside a:hover,
+.dokuwiki div.toc #toc__inside a:active {
+    border-bottom: 1px dashed __text__;
+}
+
+
+
+/******************************************************************************
+ ******** Adjust the starter template styles: _toc.css             ************
+ ******** New Table of contents (TOC), since DokuWiki 2012-09-10   ************
+ ******** Have a look at http://j.mp/eq8zSo for more information   ************
+ ******************************************************************************/
+div.dokuwiki #dw__toc {
+    margin: 3.9em 0 0 2em !important;
+    float: right;
+    width: 200px;
+    font-family: Arial,Helvetica,'Liberation Sans',sans-serif;
+    font-size: 90%;
+    background-color: transparent;
+}
+
+div.dokuwiki #dw__toc h3 {
+    font-family: Arial,Helvetica,'Liberation Sans',sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: transparent;
+    border: 1px solid #606060;
+    padding: 0.2em 0.5em;
+    margin-bottom: 0;
+}
+
+div.dokuwiki #dw__toc h3 strong {
+    margin-top: 0.2em;
+}
+
+div.dokuwiki #dw__toc h3 ~ div {
+    background-color: transparent;
+    border-right: 1px dotted #606060;
+    border-left: 1px dotted #606060;
+    border-bottom: 1px dotted #606060;
+    color: __text__;
+    padding-bottom: 7px !important;
+    padding-left: 10px;
+    padding-right: 7px;
+}
+
+.dokuwiki #dw__toc ul,
+.dokuwiki #dw__toc ul ul {
+    padding-left: 1em;
+    text-align: left;
+}
+.dokuwiki #dw__toc ul li {
     list-style: circle;
 }
-.dokuwiki #toc__inside a,
-.dokuwiki #toc__inside a:visited {
+.dokuwiki #dw__toc a,
+.dokuwiki #dw__toc a:visited {
     color: __text__;
 }
-.dokuwiki #toc__inside a,
-.dokuwiki #toc__inside a:visited {
+.dokuwiki #dw__toc a,
+.dokuwiki #dw__toc a:visited {
     color: __text__;
 }
-.dokuwiki #toc__inside a:hover,
-.dokuwiki #toc__inside a:active {
+.dokuwiki #dw__toc a:hover,
+.dokuwiki #dw__toc a:active {
     border-bottom: 1px dashed __text__;
 }
 
@@ -1237,7 +1309,7 @@ html.popup #mediamgr__aside ul.idx {
 #mediamanager__page h2,
 #mediamanager__page h3 {
     font-size: 12px !important;
-    font-family: 'Liberation Sans',Arial,Helvetica,sans-serif;
+    font-family: Arial,Helvetica,'Liberation Sans',sans-serif;
     line-height: 1.5em !important;
     font-weight: normal !important;
     padding: 3px 10px !important;
@@ -1274,7 +1346,6 @@ html.popup #mediamgr__aside ul.idx {
 }
 #mediamanager__page .panelHeader form.options {
     height: 24px;
-    margin-top: -7px;
 }
 /* The ".mediamanagerfix" class gets assigned in main.php for the full screen
    media manager only. */
