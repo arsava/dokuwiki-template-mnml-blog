@@ -63,6 +63,11 @@ if ($rev < 1){
 if (file_exists(DOKU_TPLINC."/user/boxes.php")){ //user defined
    include DOKU_TPLINC."/user/boxes.php";
 }
+//add box for QR Code of current page's URL (powered by <http://qrserver.com/api/>)
+if (tpl_getConf("mnmlblog_qrcodebox")){
+    $_mnmlblog_boxes["qrcode"]["headline"] = $lang["mnmlblog_qrcodebox_qrcode"];
+    $_mnmlblog_boxes["qrcode"]["xhtml"]    = "<span class=\"qrcode\"><a href=\"http://".(($conf["lang"] !== "de") ? "goqr.me" : "qr-code-generator.de")."/\" target=\"_blank\"><img src=\"".((!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on") ? "https" : "http")."://api.qrserver.com/v1/create-qr-code/?data=".urlencode(wl(cleanID(getId()), false, true, "&"))."&#38;size=190x190&#38;margin=0&#38;bgcolor=ffffff\" alt=\"".hsc($lang["mnmlblog_qrcodebox_qrcode"])." ".hsc(tpl_pagetitle(null, true))." (".hsc($lang["mnmlblog_qrcodebox_genforcurrentpage"]).")\" title=\"".hsc($lang["mnmlblog_qrcodebox_urlofcurrentpage"])."\" /></a></span><p class=\"qrsrc\"><a href=\"http://".(($conf["lang"] !== "de") ? "goqr.me" : "qr-code-generator.de")."/\" target=\"_blank\">QR Code</a> by <a href=\"http://qrserver.com/\" target=\"_blank\">QR-Server</a></p>";
+}
 
 
 /**

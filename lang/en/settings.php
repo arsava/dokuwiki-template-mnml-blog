@@ -46,6 +46,9 @@ $lang["mnmlblog_copyright_location"] = "If not default, use following wiki page 
 $lang["mnmlblog_search"]    = "Show search form?";
 $lang["mnmlblog_search_pos"] = "If yes, search form position";
 
+//qr code box
+$lang["mnmlblog_qrcodebox"] = "Show box with QR Code of current wiki page URL (for easy URL transfer to mobile browser)?";
+
 //other stuff
 $lang["mnmlblog_newpostform_location"]   = "Use following wiki page for the '&lt;blog newform&gt;' form:";
 $lang["mnmlblog_hideadminlinksfromanon"] = "Hide all admin and user functionality related links if the client is not an authenticated user? Please note that you have to call the login form manually if this is active (hint: '".DOKU_URL.DOKU_SCRIPT."?do=login').";

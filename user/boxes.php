@@ -39,13 +39,6 @@ $_mnmlblog_boxes["example1"]["xhtml"] = "Blogging with DokuWiki and mnml-blog...
 
 
 /*
-//QR Code of the current page (powered by <http://QR-Server.com/api/>)
-$_mnmlblog_boxes["qrcode"]["headline"] = "QR Code: URL of current page";
-$_mnmlblog_boxes["qrcode"]["xhtml"] = '<div style="text-align:center;"><img src="http://api.qrserver.com/v1/create-qr-code/?data='.urlencode(wl(cleanID(getId()), false, true, "&")).'&amp;size=190x190&amp;qzone=0" alt="QR Code: '.wl(cleanID(getId()), false, true).'" title="QR Code: '.wl(cleanID(getId()), false, true).'" /><p style="font-size:8px;margin:0 0 0 0.9em;padding:0;color:#aaa;"><a href="http://goqr.me/" style="color:#aaa;border-bottom:none;">QR Code</a> by <a href="http://qrserver.com/" style="color:#aaa;border-bottom:none;">QR-Server</a></p></div>';
-*/
-
-
-/*
 //subscribe
 $_mnmlblog_boxes["syndication"]["headline"] = "Syndiaction/RSS Feed";
 $_mnmlblog_boxes["syndication"]["xhtml"] = '<a href="'.DOKU_URL.'feed.php?mode=blogtng&amp;blog=default" rel="nofollow">Subscribe to posts</a>'; //ATTENTION: if not default, replace blog=default with the blogtng-template you are using!

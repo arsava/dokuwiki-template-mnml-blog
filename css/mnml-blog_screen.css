@@ -766,6 +766,37 @@ div#pagewrap {
     text-decoration: none;
     border-bottom: none;
 }
+/* sidebar QR Code */
+.dokuwiki div#tmpl_sidebar #qrcode {
+    text-align: center;
+}
+.dokuwiki div#tmpl_sidebar #qrcode span.qrcode img {
+    border: 0 none;
+}
+.dokuwiki div#tmpl_sidebar #qrcode span.qrcode a,
+.dokuwiki div#tmpl_sidebar #qrcode span.qrcode a:link,
+.dokuwiki div#tmpl_sidebar #qrcode span.qrcode a:active,
+.dokuwiki div#tmpl_sidebar #qrcode span.qrcode a:hover,
+.dokuwiki div#tmpl_sidebar #qrcode span.qrcode a:visited {
+    border: 0 none;
+    cursor: default;
+    text-decoration: none;
+}
+.dokuwiki div#tmpl_sidebar #qrcode p.qrsrc {
+    margin: 0 0 0 0.9em;
+    padding: 0;
+    font-size: 8px;
+    color: #aaa;
+}
+.dokuwiki div#tmpl_sidebar #qrcode p.qrsrc a,
+.dokuwiki div#tmpl_sidebar #qrcode p.qrsrc a:link,
+.dokuwiki div#tmpl_sidebar #qrcode p.qrsrc a:active,
+.dokuwiki div#tmpl_sidebar #qrcode p.qrsrc a:hover,
+.dokuwiki div#tmpl_sidebar #qrcode p.qrsrc a:visited {
+    color: #aaa;
+    border: 0 none;
+    text-decoration: none;
+}
 
 /* footer */
 #tmpl_footer {

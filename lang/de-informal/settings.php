@@ -46,6 +46,9 @@ $lang["mnmlblog_copyright_location"] = "Falls nicht den Standard-Copyright-Hinwe
 $lang["mnmlblog_search"]     = "Suchformular anzeigen?";
 $lang["mnmlblog_search_pos"] = "Falls ja, Suchformularposition";
 
+//qr code box
+$lang["mnmlblog_qrcodebox"] = "Box mit QR-Code der aktuellen Wiki-Seiten-URL anzeigen (für einfache Übertragung der URL auf Mobiltelefone)?";
+
 //other stuff
 $lang["mnmlblog_newpostform_location"]   = "Folgende wiki-Seite für '&lt;blog newform&gt;'-Formular verwenden:";
 $lang["mnmlblog_hideadminlinksfromanon"] = "Alle Links zu Admin- und Benutzerfunktionen verstecken, falls der Client kein authentifizierter Benutzer ist? Bitte beachten: Das Login-Formular muss manuell aufgerufen werden, falls diese Option aktiviert ist (Tipp: '".DOKU_URL.DOKU_SCRIPT."?do=login').";

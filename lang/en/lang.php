@@ -37,6 +37,11 @@ $lang["mnmlblog_lnk_siteindex"] = "Site index";
 $lang["mnmlblog_lnk_upload"] = "Upload file";
 $lang["mnmlblog_lnk_newposting"] = "New posting";
 
+//qr code box
+$lang["mnmlblog_qrcodebox_qrcode"] = "QR Code: URL of current page";
+$lang["mnmlblog_qrcodebox_genforcurrentpage"] = "generated for current page";
+$lang["mnmlblog_qrcodebox_urlofcurrentpage"] = "Current page as QR Code (scan for easy mobile access)";
+
 //other
 $lang["mnmlblog_search"] = "Search";
 $lang["mnmlblog_accessdenied"] = "Access denied";

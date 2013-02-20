@@ -47,6 +47,9 @@ $meta["mnmlblog_copyright_location"] = array("string");
 $meta["mnmlblog_search"]     = array("onoff");
 $meta["mnmlblog_search_pos"] = array("multichoice", "_choices" => array("sidebar", "headernav"));
 
+//qr code box
+$meta["mnmlblog_qrcodebox"] = array("onoff");
+
 //other stuff
 $meta["mnmlblog_newpostform_location"]   = array("string");
 $meta["mnmlblog_hideadminlinksfromanon"] = array("onoff");
