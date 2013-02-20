@@ -419,9 +419,11 @@ div.clearer {
 .dokuwiki dl,
 .dokuwiki hr,
 .dokuwiki blockquote,
-.dokuwiki fieldset,
 .dokuwiki address {
     margin: 0 0 1em; /* 14px (base 25px = 1.8em line-height) */
+}
+.dokuwiki fieldset {
+    margin: 0 auto 1em; /* 14px (base 25px = 1.8em line-height) */
 }
 .dokuwiki blockquote {
     border-left-color: __border__;
