@@ -1,6 +1,6 @@
 ﻿base     mnml-blog
-author   SYN Systems
-email    dokuwiki@dev.syn-systems.com
+author   Andreas Haerter
+email    development@andreas-haerter.com
 date     2013-02-20
 name     mnml-blog template
 desc     Clean and minimalist template, suitable for blogging with the BlogTNG plugin.

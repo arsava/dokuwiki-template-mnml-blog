@@ -10,8 +10,10 @@
  * - To change/translate the descriptions showed in the admin/configuration
  *   menu of DokuWiki, have a look at the file
  *   "/lib/tpl/mnml-blog/lang/<your lang>/settings.php". If it does not exists,
- *   copy and translate the English one. And don't forget to mail the
- *   translation to us, SYN Systems <dokuwiki@dev.syn-systems.com> :-D.
+ *   copy and translate the English one. Don't forget to mail your translation
+ *   to
+ *     Andreas Haerter <development@andreas-haerter.com>
+ *   Thanks :-D.
  *
  *
  * LICENSE: This file is open source software (OSS) and may be copied under
@@ -19,7 +21,7 @@
  *          the author(s) of this file in doubt.
  *
  * @license GPLv2 (http://www.gnu.org/licenses/gpl2.html)
- * @author Andreas Haerter <ah@syn-systems.com>
+ * @author Andreas Haerter <development@andreas-haerter.com>
  * @link http://www.dokuwiki.org/template:mnml-blog
  * @link http://www.dokuwiki.org/devel:configuration
  */

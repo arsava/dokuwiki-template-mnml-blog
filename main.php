@@ -9,7 +9,7 @@
  *          the author(s) of this file in doubt.
  *
  * @license GPLv2 (http://www.gnu.org/licenses/gpl2.html)
- * @author Andreas Haerter <ah@syn-systems.com>
+ * @author Andreas Haerter <development@andreas-haerter.com>
  * @link http://www.dokuwiki.org/template:mnml-blog
  * @link http://www.dokuwiki.org/devel:templates
  * @link http://www.dokuwiki.org/devel:coding_style
@@ -28,7 +28,7 @@ if (!defined("DOKU_INC")){
  * Stores the name the current client used to login
  *
  * @var string
- * @author Andreas Haerter <ah@syn-systems.com>
+ * @author Andreas Haerter <development@andreas-haerter.com>
  */
 $loginname = "";
 if (!empty($conf["useacl"])){
@@ -84,7 +84,7 @@ if (tpl_getConf("mnmlblog_qrcodebox")){
  *          aware of XSS and stuff.
  *        - "headline" (optional)
  *          Headline to show above the box. Leave empty/do not set for none.
- * @author Andreas Haerter <ah@syn-systems.com>
+ * @author Andreas Haerter <development@andreas-haerter.com>
  * @link http://www.wikipedia.org/wiki/Nofollow
  * @link http://www.wikipedia.org/wiki/Cross-site_scripting
  * @link http://www.dokuwiki.org/devel:coding_style
@@ -420,8 +420,8 @@ tpl_content(false);
             <div class="clearer"></div>
             <div id="tmpl_footer_metainfo">
                 <?php
-                //Note: do NOT remove the following mnml-blog and/or DokuWiki link/notice. Please respect this. :-)
-                echo "<a href=\"http://syn-systems.com/\" target=\"_blank\">mnml-blog</a> on <a href=\"http://www.dokuwiki.org/\" target=\"_blank\">DW</a> under the hood\n";
+                //Note: Please do NOT remove the following mnml-blog and/or DokuWiki link/notice. Thank you. :-)
+                echo "<a href=\"http://andreas-haerter.com/\" target=\"_blank\"".((cleanID(getID()) === "start") ? "" : " rel=\"nofollow\"").">mnml-blog</a> on <a href=\"http://www.dokuwiki.org/\" target=\"_blank\">DW</a> under the hood\n";
                 if (!empty($loginname)){
                     echo " | ";
                     tpl_pageinfo();
