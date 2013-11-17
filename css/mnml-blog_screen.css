@@ -94,10 +94,6 @@ h6 {
 .dokuwiki div.page h3:first-child {
     margin-top: 0 !important;
 }
-* html .dokuwiki div#tmpl_sidebar {
-    padding-top: 28px; /* fix MSIE 6 - if we can't kill the top margin of
-                          headlines, we move the sidebar. Better than nothing. */
-}
 
 /* blog posting and sidebar block headlines */
 .dokuwiki .hspec {
@@ -122,7 +118,6 @@ legend {
 }
 legend {
     text-align: left; /* needed for webkit browsers */
-    #font-family: Arial,Helvetica,'Liberation Sans',sans-serif; /* fix MSIE 6/7 */
 }
 
 /* basic margins and paddings */
@@ -271,10 +266,6 @@ pre,
 code {
     background-color: transparent !important;
     font-size: 0.857em; /* 12px (base 14px) */
-}
-* html pre,
-* html code {
-    width: 100%; /* fix MSIE 6 */
 }
 blockquote {
     padding: 0 0.75em;
@@ -495,9 +486,6 @@ td[align="right"],
 th[align="right"] {
     text-align: right;
 }
-.dokuwiki table.inline {
-    #border: 1px solid #606060; /* fix MSIE 6/7 */
-}
 .dokuwiki table.inline th,
 .dokuwiki table.inline tr {
     border: 1px solid #606060;
@@ -551,9 +539,6 @@ div#pagewrap {
     min-width: 890px; /* = min width of 950px cause of 2*30px padding */
     max-width: 1000px; /* = max width of 1060px cause of 2*30px padding */
 }
-* html div#pagewrap {
-    width: 890px; /* fix MSIE 6 */
-}
 
 #tmpl_header {
     width: 100%;
@@ -604,7 +589,6 @@ div#pagewrap {
     float: left;
     border-right: 1px solid #333;
     list-style: none;
-    background-color: #000; /* fix MSIE 6 */
     margin: 0;
 }
 #tmpl_header #tmpl_header_nav ul li.level1 div {
@@ -627,9 +611,6 @@ div#pagewrap {
 #tmpl_header #tmpl_header_nav #tmpl_header_nav_search {
     float: right;
     padding-top: 10px;
-}
-#tmpl_header #tmpl_header_nav #tmpl_header_nav_search {
-    padding-top: 13px\9; /* Fix MSIE 6,7,8 */
 }
 #tmpl_header #tmpl_header_nav #tmpl_header_nav_search input.edit {
     padding: 1px 2px;
@@ -808,7 +789,6 @@ div#pagewrap {
     font-size: 70%;
     color: __text_neu__;
     text-align: center;
-    #zoom: 1; /* fix MSIE 6/7 */
 }
 #tmpl_footer #tmpl_footer_actlinksleft {
     float: left;
@@ -1024,10 +1004,6 @@ div#pagewrap.admin div#tmpl_sidebar {
 .dokuwiki div.toc span.toc_close {
     border-color: transparent;
 }
-* html .dokuwiki div.toc span.toc_open,
-* html .dokuwiki div.toc span.toc_close {
-    border-color: #fff; /* fix MSIE 6 */
-}
 .dokuwiki div.toc span.toc_open {
     border-top-color: __text__ !important;
 }
@@ -1143,9 +1119,6 @@ div.insitu-footnote {
     padding: 2px 7px 2px 10px;
     font-size: 0.857em; /* 12px, base 14px (see ".dokuwiki") */
 }
-* html div.insitu-footnote {
-    width: 40%; /* fix MSIE6 */
-}
 .dokuwiki div.footnotes {
     font-size: 0.857em; /* 12px, base 14px (see ".dokuwiki") */
     border-top: 1px dotted #606060;
@@ -1171,7 +1144,6 @@ div.insitu-footnote {
     font-size: 10px !important;
     padding: 5px 6px;
     line-height: 1.333em;
-    #line-height: 1em; /* fix MSIE 6, 7 */
 }
 .dokuwiki input.button[type=image],
 .dokuwiki button.button[type=image] {
@@ -1179,10 +1151,6 @@ div.insitu-footnote {
     background-color: transparent !important;
     border: 0;
     padding: 0;
-}
-* html .dokuwiki input.button,
-* html .dokuwiki button.button {
-    height: 28px; /* fix MSIE 6 */
 }
 
 
@@ -1227,9 +1195,6 @@ html>body button.toolbutton {
     /* same font stack should be used for "pre, code, samp, kbd" and
        ".dokuwiki table.diff td" */
 }
-* html .dokuwiki textarea.edit {
-    width: 100%; /* fix MSIE 6 */
-}
 div.picker {
     background-color: #ebebeb;
     font-size: 0.813em; /* 13px, base 16px */
@@ -1239,11 +1204,6 @@ div.picker {
 div.picker button.pickerbutton {
     border: 0;
     background-color: #ebebeb;
-}
-.dokuwiki #wiki__editbar .editButtons,
-.dokuwiki #wiki__editbar .summary {
-    #display: block; /* Fix MSIE 6, 7 */
-    #margin-top: 25px;
 }
 
 
@@ -1615,7 +1575,6 @@ div#pagewrap.admin #blogtng__tags {
 /* bureaucracy */
 .dokuwiki form.bureaucracy__plugin fieldset {
     border: 1px dotted #606060;
-    border-style: solid\9; /* fix MSIE 6/7/8 */
 }
 .dokuwiki form.bureaucracy__plugin label span,
 .dokuwiki form.bureaucracy__plugin input.edit,
