@@ -31,12 +31,12 @@ if (!defined("DOKU_INC")){
 }
 
 //links (not all are used by default but may be useful for /user/boxes.php)
-$lang["mnmlblog_lnk_print"] = "인쇄용 문서";
+$lang["mnmlblog_lnk_print"] = "인쇄용 판";
 $lang["mnmlblog_lnk_permrev"] = "고유 링크";
 $lang["mnmlblog_lnk_whatlinkshere"] = "여기를 가리키는 문서";
 $lang["mnmlblog_lnk_siteindex"] = "사이트맵";
 $lang["mnmlblog_lnk_upload"] = "파일 올리기";
-$lang["mnmlblog_lnk_newposting"] = "새 포스트";
+$lang["mnmlblog_lnk_newposting"] = "새 게시물";
 
 //qr code box
 $lang["mnmlblog_qrcodebox_qrcode"] = "QR 코드: 현재 문서의 URL";
@@ -44,7 +44,7 @@ $lang["mnmlblog_qrcodebox_genforcurrentpage"] = "현재 문서의 생성된 QR �
 $lang["mnmlblog_qrcodebox_urlofcurrentpage"] = "현재 문서의 QR 코드 (쉽게 모바일 접근을 하려면 스캔)";
 
 //other
-$lang["mnmlblog_search"] = "찾기";
+$lang["mnmlblog_search"] = "검색";
 $lang["mnmlblog_accessdenied"] = "접근 거부됨";
 $lang["mnmlblog_fillplaceholder"] = "이 자리를 채우거나 비활성화하세요";
 $lang["mnmlblog_donate"] = "기부";
