@@ -15,9 +15,9 @@
  *          the author(s) of this file in doubt.
  *
  * @license GPLv2 (http://www.gnu.org/licenses/gpl2.html)
- * @author Andreas Haerter <development@andreas-haerter.com>
- * @link http://www.dokuwiki.org/template:mnml-blog
- * @link http://www.dokuwiki.org/plugin:blogtng
+ * @author ARSAVA <dokuwiki@dev.arsava.com>
+ * @link https://www.dokuwiki.org/template:mnml-blog
+ * @link https://www.dokuwiki.org/plugin:blogtng
  */
 
 ?>

@@ -9,12 +9,12 @@
  *          the author(s) of this file in doubt.
  *
  * @license GPLv2 (http://www.gnu.org/licenses/gpl2.html)
- * @author Andreas Haerter <development@andreas-haerter.com>
- * @link http://www.dokuwiki.org/template:mnml-blog
- * @link http://www.dokuwiki.org/devel:templates
- * @link http://www.dokuwiki.org/devel:coding_style
- * @link http://www.dokuwiki.org/devel:environment
- * @link http://www.dokuwiki.org/devel:action_modes
+ * @author ARSAVA <dokuwiki@dev.arsava.com>
+ * @link https://www.dokuwiki.org/template:mnml-blog
+ * @link https://www.dokuwiki.org/devel:templates
+ * @link https://www.dokuwiki.org/devel:coding_style
+ * @link https://www.dokuwiki.org/devel:environment
+ * @link https://www.dokuwiki.org/devel:action_modes
  */
 
 
@@ -28,7 +28,7 @@ if (!defined("DOKU_INC")){
  * Stores the name the current client used to login
  *
  * @var string
- * @author Andreas Haerter <development@andreas-haerter.com>
+ * @author ARSAVA <dokuwiki@dev.arsava.com>
  */
 $loginname = "";
 if (!empty($conf["useacl"])){
@@ -63,10 +63,10 @@ if ($rev < 1){
 if (file_exists(DOKU_TPLINC."/user/boxes.php")){ //user defined
    include DOKU_TPLINC."/user/boxes.php";
 }
-//add box for QR Code of current page's URL (powered by <http://qrserver.com/api/>)
+//add box for QR Code of current page's URL (powered by <http://goqr.me/api/>)
 if (tpl_getConf("mnmlblog_qrcodebox")){
     $_mnmlblog_boxes["qrcode"]["headline"] = $lang["mnmlblog_qrcodebox_qrcode"];
-    $_mnmlblog_boxes["qrcode"]["xhtml"]    = "<span class=\"qrcode\"><a href=\"http://".(($conf["lang"] !== "de") ? "goqr.me" : "qr-code-generator.de")."/\" target=\"_blank\"><img src=\"".((!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on") ? "https" : "http")."://api.qrserver.com/v1/create-qr-code/?data=".urlencode(wl(cleanID(getId()), false, true, "&"))."&#38;size=190x190&#38;margin=0&#38;bgcolor=ffffff\" alt=\"".hsc($lang["mnmlblog_qrcodebox_qrcode"])." ".hsc(tpl_pagetitle(null, true))." (".hsc($lang["mnmlblog_qrcodebox_genforcurrentpage"]).")\" title=\"".hsc($lang["mnmlblog_qrcodebox_urlofcurrentpage"])."\" /></a></span><p class=\"qrsrc\"><a href=\"http://".(($conf["lang"] !== "de") ? "goqr.me" : "qr-code-generator.de")."/\" target=\"_blank\">QR Code</a> by <a href=\"http://qrserver.com/\" target=\"_blank\">QR-Server</a></p>";
+    $_mnmlblog_boxes["qrcode"]["xhtml"]    = "<span class=\"qrcode\">".((cleanID(getID()) === "start") ? "<a href=\"http://".(($conf["lang"] !== "de") ? "goqr.me" : "goqr.me/de")."/\" target=\"_blank\">" : "")."<img src=\"".((!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] === "on") ? "https" : "http")."://api.qrserver.com/v1/create-qr-code/?data=".urlencode(wl(cleanID(getId()), false, true, "&"))."&#38;size=190x190&#38;margin=0&#38;bgcolor=ffffff\" alt=\"".hsc($lang["mnmlblog_qrcodebox_qrcode"])." ".hsc(tpl_pagetitle(null, true))." (".hsc($lang["mnmlblog_qrcodebox_genforcurrentpage"]).")\" title=\"".hsc($lang["mnmlblog_qrcodebox_urlofcurrentpage"])."\" />".((cleanID(getID()) === "start") ? "</a>" : "")."</span>";
 }
 
 
@@ -84,10 +84,10 @@ if (tpl_getConf("mnmlblog_qrcodebox")){
  *          aware of XSS and stuff.
  *        - "headline" (optional)
  *          Headline to show above the box. Leave empty/do not set for none.
- * @author Andreas Haerter <development@andreas-haerter.com>
+ * @author ARSAVA <dokuwiki@dev.arsava.com>
  * @link http://www.wikipedia.org/wiki/Nofollow
  * @link http://www.wikipedia.org/wiki/Cross-site_scripting
- * @link http://www.dokuwiki.org/devel:coding_style
+ * @link https://www.dokuwiki.org/devel:coding_style
  */
 function _mnmlblog_renderBoxes($arr)
 {
@@ -422,7 +422,7 @@ tpl_content(false);
             <div id="tmpl_footer_metainfo">
                 <?php
                 //Note: Please do NOT remove the following mnml-blog and/or DokuWiki link/notice. Thank you. :-)
-                echo "<a href=\"http://andreas-haerter.com/\" target=\"_blank\"".((cleanID(getID()) === "start") ? "" : " rel=\"nofollow\"").">mnml-blog</a> on <a href=\"http://www.dokuwiki.org/\" target=\"_blank\">DW</a> under the hood\n";
+                echo "<a href=\"https://www.dokuwiki.org/template:mnml-blog\" target=\"_blank\"".((cleanID(getID()) === "start") ? "" : " rel=\"nofollow\"").">mnml-blog on DW</a> under the hood\n";
                 if (!empty($loginname)){
                     echo " | ";
                     tpl_pageinfo();

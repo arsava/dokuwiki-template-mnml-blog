@@ -1,7 +1,7 @@
 ﻿base     mnml-blog
-author   Andreas Haerter
-email    development@andreas-haerter.com
+author   ARSAVA
+email    dokuwiki@dev.arsava.com
 date     2013-11-17
 name     mnml-blog template
 desc     Clean and minimalist template, suitable for blogging with the BlogTNG plugin.
-url      http://www.dokuwiki.org/template:mnml-blog
+url      https://www.dokuwiki.org/template:mnml-blog
