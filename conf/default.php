@@ -31,27 +31,27 @@ if (!defined("DOKU_INC")){
 }
 
 //header navigation
-$conf["mnmlblog_headernav"]          = false; //TRUE: use/show header navigation
+$conf["mnmlblog_headernav"]          = 0; //1: use/show header navigation
 $conf["mnmlblog_headernav_location"] = ":wiki:navigation_header"; //page/article used to store the header navigation
 
 //sidebar navigation
-$conf["mnmlblog_sidebarnav"]          = true; //TRUE: use/show sidebar navigation
+$conf["mnmlblog_sidebarnav"]          = 1; //1: use/show sidebar navigation
 $conf["mnmlblog_sidebarnav_location"] = ":wiki:navigation_sidebar"; //page/article used to store the sidebar navigation
 
 //custom copyright notice
-$conf["mnmlblog_copyright"]          = true; //TRUE: use/show copyright notice
-$conf["mnmlblog_copyright_default"]  = true; //TRUE: use default copyright notice (if copyright notice is enabled at all)
+$conf["mnmlblog_copyright"]          = 1; //1: use/show copyright notice
+$conf["mnmlblog_copyright_default"]  = 1; //1: use default copyright notice (if copyright notice is enabled at all)
 $conf["mnmlblog_copyright_location"] = ":wiki:copyright"; //page/article used to store a custom copyright notice
 
 //search form
-$conf["mnmlblog_search"]     = true; //TRUE: use/show search
+$conf["mnmlblog_search"]     = 1; //1: use/show search
 $conf["mnmlblog_search_pos"] = "sidebar"; //sidebar or headernav
 
 //qr code box
-$conf["mnmlblog_qrcodebox"] = true; //TRUE: use/show box with QR Code of current page's URL
+$conf["mnmlblog_qrcodebox"] = 1; //1: use/show box with QR Code of current page's URL
 
 //other stuff
 $conf["mnmlblog_newpostform_location"]   = ":wiki:create_new_blogpost"; //page/article used to store the form to create a new blog post
-$conf["mnmlblog_hideadminlinksfromanon"] = false; //TRUE: hide admin links if client is not an authenticated user (including login link -> you have to call "example.com?do=login" manually)
-$conf["mnmlblog_loaduserjs"]             = false; //TRUE: mnml-blog/user/user.js will be loaded
+$conf["mnmlblog_hideadminlinksfromanon"] = 0; //1: hide admin links if client is not an authenticated user (including login link -> you have to call "example.com?do=login" manually)
+$conf["mnmlblog_loaduserjs"]             = 0; //1: mnml-blog/user/user.js will be loaded
 
