@@ -1,7 +1,7 @@
 ﻿base     mnml-blog
 author   ARSAVA
 email    dokuwiki@dev.arsava.com
-date     2013-11-17
+date     2014-02-09
 name     mnml-blog template
 desc     Clean and minimalist template, suitable for blogging with the BlogTNG plugin.
 url      https://www.dokuwiki.org/template:mnml-blog
